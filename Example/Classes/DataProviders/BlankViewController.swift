@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by RayRainier on 2/24/17.
-//  Copyright © 2017 Yalantis. All rights reserved.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
 import UIKit
 import ColorMatchTabs

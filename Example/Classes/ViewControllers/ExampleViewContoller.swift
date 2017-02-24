@@ -2,8 +2,8 @@
 //  ExampleViewContoller.swift
 //  ColorMatchTabs
 //
-//  Created by Serhii Butenko on 26/6/16.
-//  Copyright © 2016 Yalantis. All rights reserved.
+//  Created by RayRainier on 2/24/17.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class ExampleViewContoller: ColorMatchTabsViewController {
         
         titleLabel.font = UIFont.navigationTitleFont()
                 
-        // to hide bottom button remove the following line
+        // to hide bottom button comment the following line
 //        popoverViewController = ExamplePopoverViewController()
 //        popoverViewController?.delegate = self
         

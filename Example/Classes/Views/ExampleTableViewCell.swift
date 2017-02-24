@@ -2,8 +2,8 @@
 //  ExampleTableViewCell.swift
 //  ColorMatchTabs
 //
-//  Created by anna on 6/15/16.
-//  Copyright © 2016 Yalantis. All rights reserved.
+//  Created by RayRainier on 2/24/17.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
 
 import UIKit
