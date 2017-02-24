@@ -1,0 +1,12 @@
+PODS:
+  - ColorMatchTabs (2.0.1)
+
+DEPENDENCIES:
+  - ColorMatchTabs (~> 2.0)
+
+SPEC CHECKSUMS:
+  ColorMatchTabs: f92f9ff526340c9816570ff2ee9abfc6d85d4a2b
+
+PODFILE CHECKSUM: 919e9fac3cdb629b0370baabfa01cc04349234ae
+
+COCOAPODS: 1.1.1
