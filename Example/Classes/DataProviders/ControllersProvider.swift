@@ -26,6 +26,9 @@ class StubContentViewControllersProvider {
 
 /*
     demo: here we hijack the users-link to not render the UITableView
+    
+    and present a different UIViewController named: BlankViewController
+        
 */
         let usersViewController = BlankViewController()
         
