@@ -43,7 +43,7 @@
 		C52989381D463FFB0058C829 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		C529893A1D463FFB0058C829 /* ExamplePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplePopoverViewController.swift; sourceTree = "<group>"; };
 		C529893B1D463FFB0058C829 /* ExampleViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewContoller.swift; sourceTree = "<group>"; };
-		C529893C1D463FFB0058C829 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C529893C1D463FFB0058C829 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Classes/ViewControllers/Main.storyboard; sourceTree = "<group>"; };
 		C529893D1D463FFB0058C829 /* StubContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubContentViewController.swift; sourceTree = "<group>"; };
 		C529893F1D463FFB0058C829 /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
 		C52989401D463FFB0058C829 /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleTableViewCell.xib; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 				C529893A1D463FFB0058C829 /* ExamplePopoverViewController.swift */,
 				C529893B1D463FFB0058C829 /* ExampleViewContoller.swift */,
 				4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */,
-				C529893C1D463FFB0058C829 /* Main.storyboard */,
 				C529893D1D463FFB0058C829 /* StubContentViewController.swift */,
 			);
 			path = ViewControllers;
@@ -168,6 +167,7 @@
 		C52989411D463FFB0058C829 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C529893C1D463FFB0058C829 /* Main.storyboard */,
 				C52989561D46425E0058C829 /* Assets.xcassets */,
 				C52989421D463FFB0058C829 /* Font */,
 				C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */,
@@ -221,6 +221,7 @@
 				TargetAttributes = {
 					C529891C1D463F0C0058C829 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Y4YLH4W88M;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -444,6 +445,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y4YLH4W88M;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yalantis.Example;
@@ -458,6 +460,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y4YLH4W88M;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yalantis.Example;

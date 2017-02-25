@@ -21,16 +21,18 @@ class StubContentViewControllersProvider {
         let reviewsViewController = StubContentViewController()
         reviewsViewController.type = .reviews
         
-//        let usersViewController = StubContentViewController()
-//        usersViewController.type = .users
+        let usersViewController = StubContentViewController()
+        usersViewController.type = .users
 
 /*
     demo: here we hijack the users-link to not render the UITableView
     
     and present a different UIViewController named: BlankViewController
         
-*/
+
         let usersViewController = BlankViewController()
+*/
+        
         
         return [productsViewController, venuesViewController, reviewsViewController, usersViewController]
     }()
