@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ChangeViewProtocol: NSObjectProtocol {
+    func loadNewScreen(controller: UIViewController) -> Void
+}
+
 class ExampleTableViewCell: UITableViewCell {
+
+	var delegate: ChangeViewProtocol?
     
     @IBOutlet fileprivate weak var contentImageView: UIImageView!
 
@@ -32,8 +38,13 @@ class ExampleTableViewCell: UITableViewCell {
     }
     
     @objc fileprivate func handleSelectImage() {
+    
+    	let blankViewController = BlankViewController()
         
-            print("Selected contentImageView in UITableViewCell")
+        if delegate?.responds(to: #selector(ExampleTableViewCell.handleSelectImage)) != nil {
+            delegate?.loadNewScreen(controller: blankViewController)
+        }
+        
     }
     
 

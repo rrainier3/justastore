@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StubContentViewController: UITableViewController {
+class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     enum `Type` {
         case products, venues, reviews, users
@@ -46,11 +46,34 @@ class StubContentViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExampleTableViewCell
         let image = objects[(indexPath as NSIndexPath).row]
+        
+		cell.delegate = self		// to enable ChangeViewProtocol
+        
         cell.apply(image)
         
         return cell
     }
     
+    // implement ChangeViewProtocol method
+    func loadNewScreen(controller: UIViewController) {
+    
+      //  DispatchQueue.main.async(execute: {
+        
+        	// we use self.show instead of self.present(controller)
+
+            let destViewController = BlankViewController()
+            
+            let navController = UINavigationController(rootViewController: destViewController)
+            
+            navController.view.backgroundColor = .green
+        
+        	self.show(navController, sender: self)
+            
+       // })
+        
+    }
+    
+    // nothin's happening with didSelect and didDeselect ??
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Did Select Row ", indexPath.row)
     }
