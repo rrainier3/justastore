@@ -24,6 +24,7 @@ class BlankViewController: UIViewController {
     
     let containerView: UIView = {
         let cv = UIView()
+        cv.backgroundColor = .green
 		cv.translatesAutoresizingMaskIntoConstraints = false
         cv.layer.masksToBounds = true
         return cv
@@ -53,23 +54,31 @@ class BlankViewController: UIViewController {
     
     
     func setupViews() {
+    
+    	self.view.addSubview(containerView)
+
+		//containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10).isActive = true
+        containerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16).isActive = true
+        containerView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 10).isActive = true
+
+//        let thisCV = containerView
+//        thisCV.addSubview(imageView)
+//        thisCV.addSubview(textView)
+//        thisCV.addSubview(lineSeparatorView)
         
-        let thisCV = containerView
-        thisCV.addSubview(imageView)
-        thisCV.addSubview(textView)
-        thisCV.addSubview(lineSeparatorView)
-        
-        thisCV.anchor(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 32, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        
-        imageView.anchorToTop(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
-        
-        textView.anchorWithConstantsToTop(nil, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16)
-        
-        textView.heightAnchor.constraint(equalTo: thisCV.heightAnchor, multiplier: 0.3).isActive = true
-        
-        lineSeparatorView.anchorToTop(nil, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
-        
-        lineSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+//        thisCV.anchor(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 32, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: self.view.frame.width, heightConstant: self.view.frame.height)
+//        
+//        imageView.anchorToTop(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
+//        
+//        textView.anchorWithConstantsToTop(nil, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16)
+//        
+//        textView.heightAnchor.constraint(equalTo: thisCV.heightAnchor, multiplier: 0.3).isActive = true
+//        
+//        lineSeparatorView.anchorToTop(nil, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
+//        
+//        lineSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
 
