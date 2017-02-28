@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1B59C61E65F8C8002C90E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B59C51E65F8C8002C90E7 /* Extensions.swift */; };
 		4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */; };
 		BDA877807C39FEE4E02665AB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */; };
 		C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52989201D463F0C0058C829 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F1B59C51E65F8C8002C90E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlankViewController.swift; path = ../DataProviders/BlankViewController.swift; sourceTree = "<group>"; };
 		5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB39A8721E969C6131CF725 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				C529893C1D463FFB0058C829 /* Main.storyboard */,
 				C52989561D46425E0058C829 /* Assets.xcassets */,
 				C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */,
+				4F1B59C51E65F8C8002C90E7 /* Extensions.swift */,
 				C52989421D463FFB0058C829 /* Font */,
 			);
 			path = Resources;
@@ -325,6 +328,7 @@
 				C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */,
 				4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */,
 				C529894E1D463FFB0058C829 /* StubContentViewController.swift in Sources */,
+				4F1B59C61E65F8C8002C90E7 /* Extensions.swift in Sources */,
 				C52989551D463FFB0058C829 /* UIFont+Zeplin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
