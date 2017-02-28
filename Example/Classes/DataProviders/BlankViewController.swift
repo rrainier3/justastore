@@ -15,10 +15,20 @@ class BlankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigationItem.title = "Model Store"
+        setupNavigationButtons()
+        
+		print("BlankViewController ...")
+        
+    }
+    
+    fileprivate func setupNavigationButtons() {
+    
         self.title = "StoreItem"
         
-        let titleAttributes = [NSFontAttributeName: UIFont.navigationTitleFont()]
+        let uiFont = UIFont.navigationTitleFont()!
+        
+        let titleAttributes = [NSFontAttributeName: uiFont as UIFont]
+        
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
         self.view.backgroundColor = .white
@@ -27,17 +37,17 @@ class BlankViewController: UIViewController {
         navigationBar.tintColor = UIColor.black
         
         let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
-        
-//        let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))
-        
+
         let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
         
-//        let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
+        // barButtonSystemItem styles
+        
+        // let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))
+        
+        // let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
-        
-		print("BlankViewController ...")
         
     }
     

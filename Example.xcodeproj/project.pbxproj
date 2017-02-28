@@ -169,8 +169,8 @@
 			children = (
 				C529893C1D463FFB0058C829 /* Main.storyboard */,
 				C52989561D46425E0058C829 /* Assets.xcassets */,
-				C52989421D463FFB0058C829 /* Font */,
 				C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */,
+				C52989421D463FFB0058C829 /* Font */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

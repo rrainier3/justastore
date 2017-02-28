@@ -57,22 +57,19 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     // implement ChangeViewProtocol method
     func loadNewScreen(controller: UIViewController) {
         
-        	// we use self.show instead of self.present(controller)
-
             let destViewController = BlankViewController()
             
             let navController = UINavigationController(rootViewController: destViewController)
         
+            // we use self.show instead of self.present(controller)
         	self.show(navController, sender: self)
-        
-        
     }
     
-    // nothin's happening with didSelect and didDeselect ??
+    // nothin's happening with didSelect ??
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Did Select Row ", indexPath.row)
     }
-    
+    // nothin's happening with didDeselect ??
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print("Did unSelect Row ", indexPath.row)
     }
