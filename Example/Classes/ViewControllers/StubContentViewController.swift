@@ -56,20 +56,15 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     // implement ChangeViewProtocol method
     func loadNewScreen(controller: UIViewController) {
-    
-      //  DispatchQueue.main.async(execute: {
         
         	// we use self.show instead of self.present(controller)
 
             let destViewController = BlankViewController()
             
             let navController = UINavigationController(rootViewController: destViewController)
-            
-            navController.view.backgroundColor = .green
         
         	self.show(navController, sender: self)
-            
-       // })
+        
         
     }
     

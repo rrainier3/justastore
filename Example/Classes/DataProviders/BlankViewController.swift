@@ -18,11 +18,21 @@ class BlankViewController: UIViewController {
         //navigationItem.title = "Model Store"
         self.title = "StoreItem"
         
-//        let navigationBar = navigationController!.navigationBar
-//        navigationBar.tintColor = UIColor.blue
+        let titleAttributes = [NSFontAttributeName: UIFont.navigationTitleFont()]
+        self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
-        let leftButton =  UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(triggerLeftButton))
-        let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        self.view.backgroundColor = .white
+        
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.black
+        
+        let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
+        
+//        let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))
+        
+        let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
+        
+//        let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
