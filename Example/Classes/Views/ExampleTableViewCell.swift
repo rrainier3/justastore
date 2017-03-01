@@ -44,8 +44,6 @@ class ExampleTableViewCell: UITableViewCell {
     	let blankViewController = BlankViewController()
         
         if delegate?.responds(to: #selector(ExampleTableViewCell.handleSelectImage)) != nil {
-        	
-            print("..ExampleTableViewCell")
             
             delegate?.loadNewScreen(controller: blankViewController)
         }

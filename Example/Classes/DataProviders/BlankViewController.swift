@@ -17,8 +17,6 @@ class BlankViewController: UIViewController {
         setupNavigationButtons()
         
         setupViews()
-        
-		print("...BlankViewController")
                 
     }
     

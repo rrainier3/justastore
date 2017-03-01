@@ -61,8 +61,6 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     // implement ChangeViewProtocol method
     func loadNewScreen(controller: UIViewController) {
-    
-    		print(".StubContentViewController")
         
             let destViewController = BlankViewController()
             
