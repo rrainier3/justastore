@@ -20,10 +20,9 @@ class BlankViewController: UIViewController {
                 
     }
     
-    
     let containerView: UIView = {
         let cv = UIView()
-        cv.backgroundColor = .green
+        cv.backgroundColor = .white
 		cv.translatesAutoresizingMaskIntoConstraints = false
         cv.layer.masksToBounds = true
         return cv
@@ -47,10 +46,9 @@ class BlankViewController: UIViewController {
     
     let lineSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         return view
     }()
-    
     
     func setupViews() {
     
@@ -60,23 +58,25 @@ class BlankViewController: UIViewController {
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16).isActive = true
         containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
-        
-        //containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -8).isActive = true
-        //containerView.heightAnchor.constraint(equalToConstant: view.frame.height).isActive = true
 
         imageView.image = flyingImage
         
         containerView.addSubview(imageView)
         
-        _ = imageView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: view.frame.height/2)
+        
+        // 722x520 pixel size applied to heightConstant
+        _ = imageView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 520/2)
+        
+        containerView.addSubview(lineSeparatorView)
+        
+        _ = lineSeparatorView.anchor(imageView.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
+    
 
 //        textView.anchorWithConstantsToTop(nil, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16)
 //        
 //        textView.heightAnchor.constraint(equalTo: thisCV.heightAnchor, multiplier: 0.3).isActive = true
 //        
-//        lineSeparatorView.anchorToTop(nil, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
-//        
-//        lineSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+
     }
     
     fileprivate func setupNavigationButtons() {
@@ -99,9 +99,7 @@ class BlankViewController: UIViewController {
         let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
         
         // barButtonSystemItem styles
-        
-        // let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))
-        
+        // let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))        
         // let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
