@@ -8,6 +8,8 @@
 
 import UIKit
 
+var flyingImage: UIImage!		// global image ;)
+
 class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     enum `Type` {
@@ -15,6 +17,7 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     }
     
     var type: Type!
+    
     fileprivate var objects: [UIImage] = []
     
     override func viewDidLoad() {
@@ -49,6 +52,8 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         
 		cell.delegate = self		// to enable ChangeViewProtocol
         
+        flyingImage = image
+        
         cell.apply(image)
         
         return cell
@@ -56,6 +61,8 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     // implement ChangeViewProtocol method
     func loadNewScreen(controller: UIViewController) {
+    
+    		print(".StubContentViewController")
         
             let destViewController = BlankViewController()
             
@@ -65,14 +72,6 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         	self.show(navController, sender: self)
     }
     
-    // nothin's happening with didSelect ??
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Did Select Row ", indexPath.row)
-    }
-    // nothin's happening with didDeselect ??
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("Did unSelect Row ", indexPath.row)
-    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.width / 1.4

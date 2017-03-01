@@ -18,9 +18,10 @@ class BlankViewController: UIViewController {
         
         setupViews()
         
-		print("BlankViewController ...")
-        
+		print("...BlankViewController")
+                
     }
+    
     
     let containerView: UIView = {
         let cv = UIView()
@@ -57,21 +58,20 @@ class BlankViewController: UIViewController {
     
     	self.view.addSubview(containerView)
 
-		//containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+		containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16).isActive = true
-        containerView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 10).isActive = true
-
-//        let thisCV = containerView
-//        thisCV.addSubview(imageView)
-//        thisCV.addSubview(textView)
-//        thisCV.addSubview(lineSeparatorView)
+        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
         
-//        thisCV.anchor(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 32, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: self.view.frame.width, heightConstant: self.view.frame.height)
-//        
-//        imageView.anchorToTop(thisCV.topAnchor, left: thisCV.leftAnchor, bottom: textView.topAnchor, right: thisCV.rightAnchor)
-//        
+        //containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -8).isActive = true
+        //containerView.heightAnchor.constraint(equalToConstant: view.frame.height).isActive = true
+
+        imageView.image = flyingImage
+        
+        containerView.addSubview(imageView)
+        
+        _ = imageView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: view.frame.height/2)
+
 //        textView.anchorWithConstantsToTop(nil, left: thisCV.leftAnchor, bottom: thisCV.bottomAnchor, right: thisCV.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16)
 //        
 //        textView.heightAnchor.constraint(equalTo: thisCV.heightAnchor, multiplier: 0.3).isActive = true
@@ -81,8 +81,6 @@ class BlankViewController: UIViewController {
 //        lineSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-
-
     fileprivate func setupNavigationButtons() {
     
         self.title = "StoreItem"

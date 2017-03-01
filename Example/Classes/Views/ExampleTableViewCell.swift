@@ -39,9 +39,14 @@ class ExampleTableViewCell: UITableViewCell {
     
     @objc fileprivate func handleSelectImage() {
     
+    	flyingImage = contentImageView.image
+    
     	let blankViewController = BlankViewController()
         
         if delegate?.responds(to: #selector(ExampleTableViewCell.handleSelectImage)) != nil {
+        	
+            print("..ExampleTableViewCell")
+            
             delegate?.loadNewScreen(controller: blankViewController)
         }
         
