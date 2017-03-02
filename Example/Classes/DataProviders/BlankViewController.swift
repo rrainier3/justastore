@@ -87,7 +87,7 @@ class BlankViewController: UIViewController {
         button.titleLabel?.font = UIFont.cellTitleFont()
         button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -135,14 +135,16 @@ class BlankViewController: UIViewController {
         textView.font = UIFont.menuTitleFont()
 		containerView.addSubview(textView)
         
-		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 10, leftConstant: -4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 10, leftConstant: -2, bottomConstant: 0, rightConstant: 6, widthConstant: 0, heightConstant: 0)
         
         containerView.addSubview(addButton)
         
-        addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12).isActive = true
-        addButton.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        _ = addButton.anchor(textView.bottomAnchor, left: textView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 20, rightConstant: 12, widthConstant: 0, heightConstant: 50)
+        
+//        addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+//        addButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12).isActive = true
+//        addButton.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+//        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
     }
     
