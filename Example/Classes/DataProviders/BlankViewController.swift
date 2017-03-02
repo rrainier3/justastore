@@ -78,6 +78,30 @@ class BlankViewController: UIViewController {
         return view
     }()
     
+    let addButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 7/255, green: 184/255, blue: 248/255, alpha: 1)
+        button.setTitle("O R D E R", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        
+        button.titleLabel?.font = UIFont.cellTitleFont()
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addTarget(self, action: #selector(handleAddButton), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    // #selector handle addButton action
+    func handleAddButton() {
+        
+    }
+    
+    
     func setupViews() {
     
     	self.view.addSubview(containerView)
@@ -112,7 +136,12 @@ class BlankViewController: UIViewController {
         textView.font = UIFont.menuTitleFont()
 		containerView.addSubview(textView)
         
-		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 4, leftConstant: -4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 10, leftConstant: -4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+        
+        addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12).isActive = true
+        addButton.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
     }
     
