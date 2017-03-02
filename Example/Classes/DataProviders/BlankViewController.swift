@@ -101,7 +101,6 @@ class BlankViewController: UIViewController {
         
     }
     
-    
     func setupViews() {
     
     	self.view.addSubview(containerView)
@@ -137,6 +136,8 @@ class BlankViewController: UIViewController {
 		containerView.addSubview(textView)
         
 		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 10, leftConstant: -4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+        
+        containerView.addSubview(addButton)
         
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         addButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12).isActive = true
