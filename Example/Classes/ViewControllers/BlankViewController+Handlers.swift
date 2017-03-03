@@ -10,6 +10,22 @@ import UIKit
 import ColorMatchTabs
 
 extension BlankViewController {
+
+    func changePriceLabel(_ selectedIndex: Int) {
+    
+    // we can implement this within a dictionary [index, value] returning value
+        switch selectedIndex {
+        case 1:
+            priceLabel.text = "$19.95"
+        case 2:
+        	priceLabel.text = "$49.50"
+        case 3:
+        	priceLabel.text = "$75.00"
+        default:
+            priceLabel.text = "$19.95"
+        }
+        return
+    }
     
     func setupViews() {
         
@@ -42,7 +58,19 @@ extension BlankViewController {
         
         _ = productSubLabel.anchor(productLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 3, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
+        // insert our priceLabel
+        priceLabel.font = UIFont.navigationTitleFont()
+        containerView.addSubview(priceLabel)
+        
+        _ = priceLabel.anchor(productLabel.topAnchor, left: nil, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        
         // insert our segmented-control here
+        segmentedControl.itemTitles = ["S","M","L"]
+        segmentedControl.didSelectItemWith = { (index, title) -> () in
+            print("Selected item \(index) for \(title)")
+            self.changePriceLabel(index)
+        }
+        
         containerView.addSubview(segmentedControl)
         
         _ = segmentedControl.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 16, leftConstant: 8, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 40)

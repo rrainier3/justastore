@@ -25,7 +25,6 @@ class BlankViewController: UIViewController {
         segmentedControl.allowChangeThumbWidth = false
         segmentedControl.frame = CGRect(x: 50, y: 200, width: 100, height: 50)
         // segmentedControl 3 type
-        segmentedControl.itemTitles = ["S","M","L"]
         segmentedControl.allowChangeThumbWidth = false
         segmentedControl.selectedTextFont = UIFont.systemFont(ofSize: 16, weight: 0.3)
         segmentedControl.defaultTextFont = UIFont.systemFont(ofSize: 16, weight: 0.01)
@@ -34,10 +33,20 @@ class BlankViewController: UIViewController {
         segmentedControl.thumbShadowColor = TTSegmentedControl.UIColorFromRGB(0x22C6E7)
         segmentedControl.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x25D0EC), TTSegmentedControl.UIColorFromRGB(0x1EA3D8)]
         
-        segmentedControl.didSelectItemWith = { (index, title) -> () in
-            		print("Selected item \(index) for \(title)")
-    		}
         return segmentedControl
+        
+    }()
+    
+    let priceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "$19.95"
+        label.textAlignment = .left
+        label.numberOfLines = 0 	// this causes text to wrap-around
+        label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        //label.textColor = UIColor.fromRGB(0xf4ac06)
+        label.textColor = UIColor(red: 1.00, green: 0.61, blue: 0.16, alpha: 1.00)
+        return label
     }()
     
     let containerView: UIView = {
