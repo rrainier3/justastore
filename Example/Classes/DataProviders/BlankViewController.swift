@@ -20,6 +20,26 @@ class BlankViewController: UIViewController {
                 
     }
     
+    let segmentedControl: TTSegmentedControl = {
+        let segmentedControl = TTSegmentedControl()
+        segmentedControl.allowChangeThumbWidth = false
+        segmentedControl.frame = CGRect(x: 50, y: 200, width: 100, height: 50)
+        // segmentedControl 3 type
+        segmentedControl.itemTitles = ["S","M","L"]
+        segmentedControl.allowChangeThumbWidth = false
+        segmentedControl.selectedTextFont = UIFont.systemFont(ofSize: 16, weight: 0.3)
+        segmentedControl.defaultTextFont = UIFont.systemFont(ofSize: 16, weight: 0.01)
+        segmentedControl.useGradient = true
+        segmentedControl.useShadow = true
+        segmentedControl.thumbShadowColor = TTSegmentedControl.UIColorFromRGB(0x22C6E7)
+        segmentedControl.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x25D0EC), TTSegmentedControl.UIColorFromRGB(0x1EA3D8)]
+        
+        segmentedControl.didSelectItemWith = { (index, title) -> () in
+            		print("Selected item \(index) for \(title)")
+    		}
+        return segmentedControl
+    }()
+    
     let containerView: UIView = {
         let cv = UIView()
         cv.backgroundColor = .white
@@ -61,16 +81,24 @@ class BlankViewController: UIViewController {
     
     let textView: UITextView = {
         let tv = UITextView()
-        tv.text = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        tv.text = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         tv.isEditable = false
         tv.textAlignment = .justified
         //tv.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 0, right: 0)
         tv.textColor = UIColor(red: 95/255, green: 100/255, blue: 100/255, alpha: 1)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
+        
+        tv.isHidden = false
+        
+        // Let us style the linespacing CGFloat in this paragraph
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 8
+        let attributes = [NSParagraphStyleAttributeName: style]
+        tv.attributedText = NSAttributedString(string: tv.text, attributes: attributes)
         return tv
     }()
-    
+
     let lineSeparatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
@@ -132,20 +160,20 @@ class BlankViewController: UIViewController {
         
         _ = productSubLabel.anchor(productLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 3, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
+        // insert our segmented-control here
+        containerView.addSubview(segmentedControl)
+        
+        _ = segmentedControl.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 16, leftConstant: 8, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 40)
+        
         textView.font = UIFont.menuTitleFont()
 		containerView.addSubview(textView)
         
-		_ = textView.anchor(productSubLabel.bottomAnchor, left: productSubLabel.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 10, leftConstant: -2, bottomConstant: 0, rightConstant: 6, widthConstant: 0, heightConstant: 0)
+		_ = textView.anchor(segmentedControl.bottomAnchor, left: productSubLabel.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 10, leftConstant: -2, bottomConstant: 0, rightConstant: 2, widthConstant: 0, heightConstant: 0)
         
         containerView.addSubview(addButton)
         
         _ = addButton.anchor(textView.bottomAnchor, left: textView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 20, rightConstant: 12, widthConstant: 0, heightConstant: 50)
         
-//        addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-//        addButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12).isActive = true
-//        addButton.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
-//        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
     }
     
     fileprivate func setupNavigationButtons() {
