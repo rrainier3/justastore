@@ -121,12 +121,18 @@ extension BlankViewController {
         
         rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
         
+        let giBadgeView = GIBadgeView()
+        giBadgeView.badgeValue = 10			// init test
+        giBadgeView.topOffset = 6
+        giBadgeView.rightOffset = 23
+        
+        rightButton.addSubview(giBadgeView)
+        
         //let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         //navigationItem.rightBarButtonItem = rightButton
-        
     }
     
     @objc fileprivate func triggerLeftButton() {

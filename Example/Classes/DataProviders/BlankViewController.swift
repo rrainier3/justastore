@@ -132,7 +132,7 @@ class BlankViewController: UIViewController {
         
         return button
     }()
-    
+        
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
