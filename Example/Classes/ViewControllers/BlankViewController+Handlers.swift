@@ -90,6 +90,10 @@ extension BlankViewController {
         print("ORDER Button pressed!")
     }
     
+    func handleBasketButton() {
+        print("BASKET Button pressed!")
+    }
+    
     func setupNavigationButtons() {
         
         self.title = "StoreItem"
@@ -107,14 +111,21 @@ extension BlankViewController {
         
         let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
         
-        let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
+		// let's setup the rightButton for our basket
         
-        // barButtonSystemItem styles
-        // let leftButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(triggerLeftButton))
-        // let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
+        let imageSize:CGSize = CGSize(width: 24, height: 24)
+        let rightButton = UIButton(type: .custom)
+        rightButton.frame = CGRect(x: 96, y: 96, width: 26, height: 26)
+        rightButton.setImage(#imageLiteral(resourceName: "basket3"), for: .normal)
+        rightButton.imageEdgeInsets = UIEdgeInsetsMake(rightButton.frame.size.height/2 - imageSize.height/2, rightButton.frame.size.width/2 - imageSize.width/2, rightButton.frame.size.height/2 - imageSize.height/2, rightButton.frame.size.width/2 - imageSize.width/2)
+        
+        rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
+        
+        //let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        //navigationItem.rightBarButtonItem = rightButton
         
     }
     
