@@ -87,11 +87,17 @@ extension BlankViewController {
 
     // #selector handle addButton action
     func handleAddButton() {
-        print("ORDER Button pressed!")
+        
+        giBadgeView.increment()
+        
+        print(giBadgeView.badgeValue)
+        
+        // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
     }
-    
+    // #selector handle basketButton action
     func handleBasketButton() {
-        print("BASKET Button pressed!")
+        
+		print("BASKET Button pressed!")
     }
     
     func setupNavigationButtons() {
@@ -121,18 +127,13 @@ extension BlankViewController {
         
         rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
         
-        let giBadgeView = GIBadgeView()
-        giBadgeView.badgeValue = 8			// init test
-        giBadgeView.topOffset = 6
-        giBadgeView.rightOffset = 24
-        
+        // setup the badge on the basket!
         rightButton.addSubview(giBadgeView)
         
-        //let rightButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        //navigationItem.rightBarButtonItem = rightButton
+
     }
     
     @objc fileprivate func triggerLeftButton() {

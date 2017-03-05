@@ -132,7 +132,13 @@ class BlankViewController: UIViewController {
         
         return button
     }()
-        
+    
+    let giBadgeView: GIBadgeView = {
+        let badge = GIBadgeView()
+        badge.topOffset = 6
+        badge.rightOffset = 24
+        return badge
+    }()
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
