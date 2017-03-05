@@ -1,15 +1,12 @@
 PODS:
   - ColorMatchTabs (2.0.1)
-  - Sheriff (0.3.2)
 
 DEPENDENCIES:
   - ColorMatchTabs (~> 2.0)
-  - Sheriff
 
 SPEC CHECKSUMS:
   ColorMatchTabs: f92f9ff526340c9816570ff2ee9abfc6d85d4a2b
-  Sheriff: d3d03fe6d35aa781e3f42d48f3fb53ed7d04958d
 
-PODFILE CHECKSUM: e18d48ebcc4e0633e3c48a08bb5f2450b8de0a08
+PODFILE CHECKSUM: c2a84bd1dee7b1309dec25c5968f65b051fbedee
 
 COCOAPODS: 1.1.1

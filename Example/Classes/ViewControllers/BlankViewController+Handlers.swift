@@ -122,9 +122,9 @@ extension BlankViewController {
         rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
         
         let giBadgeView = GIBadgeView()
-        giBadgeView.badgeValue = 10			// init test
+        giBadgeView.badgeValue = 8			// init test
         giBadgeView.topOffset = 6
-        giBadgeView.rightOffset = 23
+        giBadgeView.rightOffset = 24
         
         rightButton.addSubview(giBadgeView)
         

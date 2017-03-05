@@ -11,7 +11,7 @@
 		4F4515711E69AEA300CE8751 /* TTSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */; };
 		4F4515731E69E6FB00CE8751 /* BlankViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */; };
 		4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */; };
-		4FE372681E6B4CF900C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE372671E6B4CF900C52871 /* GIBadgeView.m */; };
+		4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */; };
 		BDA877807C39FEE4E02665AB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */; };
 		C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52989201D463F0C0058C829 /* AppDelegate.swift */; };
 		C52989261D463F0C0058C829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52989241D463F0C0058C829 /* Main.storyboard */; };
@@ -39,8 +39,8 @@
 		4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlankViewController+Handlers.swift"; sourceTree = "<group>"; };
 		4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlankViewController.swift; path = ../DataProviders/BlankViewController.swift; sourceTree = "<group>"; };
 		4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeViewHeader.h; sourceTree = "<group>"; };
-		4FE372661E6B4CF900C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIBadgeView.h; path = Pods/Sheriff/Source/GIBadgeView.h; sourceTree = "<group>"; };
-		4FE372671E6B4CF900C52871 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIBadgeView.m; path = Pods/Sheriff/Source/GIBadgeView.m; sourceTree = "<group>"; };
+		4FE372691E6BB0AF00C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
+		4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIBadgeView.m; sourceTree = "<group>"; };
 		5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB39A8721E969C6131CF725 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C529891D1D463F0C0058C829 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,8 +103,8 @@
 				B57E9E54160EE9929FEFEB1E /* Pods */,
 				49929CCA11316D8CAC45AAA4 /* Frameworks */,
 				4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */,
-				4FE372661E6B4CF900C52871 /* GIBadgeView.h */,
-				4FE372671E6B4CF900C52871 /* GIBadgeView.m */,
+				4FE372691E6BB0AF00C52871 /* GIBadgeView.h */,
+				4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,12 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FE372681E6B4CF900C52871 /* GIBadgeView.m in Sources */,
 				C529894C1D463FFB0058C829 /* ExampleViewContoller.swift in Sources */,
 				C529894A1D463FFB0058C829 /* TabItem.swift in Sources */,
 				C52989481D463FFB0058C829 /* ControllersProvider.swift in Sources */,
 				C529894B1D463FFB0058C829 /* ExamplePopoverViewController.swift in Sources */,
 				4F4515731E69E6FB00CE8751 /* BlankViewController+Handlers.swift in Sources */,
+				4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */,
 				C529894F1D463FFB0058C829 /* ExampleTableViewCell.swift in Sources */,
 				C52989491D463FFB0058C829 /* TabSwitcherItemsProvider.swift in Sources */,
 				C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */,
