@@ -105,15 +105,17 @@ extension BlankViewController {
         self.title = "StoreItem"
         
         let uiFont = UIFont.navigationTitleFont()!
+        let uiColor = refTintColor
         
-        let titleAttributes = [NSFontAttributeName: uiFont as UIFont]
+        let titleAttributes = [NSFontAttributeName: uiFont as UIFont, NSForegroundColorAttributeName: uiColor as UIColor]
         
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
         self.view.backgroundColor = .white
         
         let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.black
+        
+        navigationBar.tintColor = refTintColor
         
         let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
         

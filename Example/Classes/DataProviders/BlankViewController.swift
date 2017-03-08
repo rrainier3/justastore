@@ -31,7 +31,8 @@ class BlankViewController: UIViewController {
         segmentedControl.useGradient = true
         segmentedControl.useShadow = true
         segmentedControl.thumbShadowColor = TTSegmentedControl.UIColorFromRGB(0x22C6E7)
-        segmentedControl.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x25D0EC), TTSegmentedControl.UIColorFromRGB(0x1EA3D8)]
+        //segmentedControl.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x25D0EC), TTSegmentedControl.UIColorFromRGB(0x1EA3D8)]
+        segmentedControl.thumbGradientColors = [refTintColor, refTintColor]
         
         return segmentedControl
         
@@ -73,7 +74,8 @@ class BlankViewController: UIViewController {
         label.numberOfLines = 0 	// this causes text to wrap-around
         label.isHidden = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(red: 13/255, green: 187/255, blue: 243/255, alpha: 1)
+        //label.textColor = UIColor(red: 13/255, green: 187/255, blue: 243/255, alpha: 1)
+        label.textColor = UIColor.darkGray
         return label
     }()
     
@@ -117,7 +119,10 @@ class BlankViewController: UIViewController {
     
     let addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(red: 7/255, green: 184/255, blue: 248/255, alpha: 1)
+        //button.backgroundColor = UIColor(red: 7/255, green: 184/255, blue: 248/255, alpha: 1)
+        
+        button.backgroundColor = refTintColor
+        
         button.setTitle("O R D E R", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         

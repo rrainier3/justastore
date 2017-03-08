@@ -9,6 +9,8 @@
 import UIKit
 import ColorMatchTabs
 
+var refTintColor: UIColor = UIColor()
+
 class ExampleViewContoller: ColorMatchTabsViewController {
     
     override func viewDidLoad() {
@@ -67,6 +69,8 @@ extension ExampleViewContoller: ColorMatchTabsViewControllerDataSource {
                 titleLabel.text = "Starbucks"
             
         }
+        
+        refTintColor = TabItemsProvider.items[index].tintColor
         
         return TabItemsProvider.items[index].tintColor
     }
