@@ -37,8 +37,10 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     fileprivate func setupDataSource() {
         if type == .products || type == .reviews {
             self.objects = [UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
-        } else if type == .venues || type == .users {
+        } else if type == .users {
             self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!]
+        } else if type == .venues {
+            self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!, UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
         }
     }
 

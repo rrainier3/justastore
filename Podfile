@@ -7,5 +7,5 @@ target 'Example' do
 
   # Pods for Example
   pod 'ColorMatchTabs', '~> 2.0'
-
+  pod 'Money'
 end

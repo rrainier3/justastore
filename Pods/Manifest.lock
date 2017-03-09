@@ -1,12 +1,18 @@
 PODS:
   - ColorMatchTabs (2.0.1)
+  - Money (2.0.1):
+    - ValueCoding (~> 2)
+  - ValueCoding (2.1.0)
 
 DEPENDENCIES:
   - ColorMatchTabs (~> 2.0)
+  - Money
 
 SPEC CHECKSUMS:
   ColorMatchTabs: f92f9ff526340c9816570ff2ee9abfc6d85d4a2b
+  Money: 6faa689f86c455112971c900e8a31fa0b9c02365
+  ValueCoding: f18cd2f0c941c43e06669717ca25aeed02d702a9
 
-PODFILE CHECKSUM: c2a84bd1dee7b1309dec25c5968f65b051fbedee
+PODFILE CHECKSUM: 612c3efcfe6b13760baa7c17513f879163f3fc9b
 
 COCOAPODS: 1.1.1

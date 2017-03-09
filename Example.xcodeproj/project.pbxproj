@@ -11,6 +11,8 @@
 		4F4515711E69AEA300CE8751 /* TTSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */; };
 		4F4515731E69E6FB00CE8751 /* BlankViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */; };
 		4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */; };
+		4FA1997F1E708D380035B7D2 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1997E1E708D380035B7D2 /* Basket.swift */; };
+		4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199801E70C22C0035B7D2 /* BasketViewController.swift */; };
 		4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */; };
 		BDA877807C39FEE4E02665AB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */; };
 		C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52989201D463F0C0058C829 /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 		4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTSegmentedControl.swift; sourceTree = "<group>"; };
 		4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlankViewController+Handlers.swift"; sourceTree = "<group>"; };
 		4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlankViewController.swift; path = ../DataProviders/BlankViewController.swift; sourceTree = "<group>"; };
+		4FA1997E1E708D380035B7D2 /* Basket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		4FA199801E70C22C0035B7D2 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeViewHeader.h; sourceTree = "<group>"; };
 		4FE372691E6BB0AF00C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
 		4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIBadgeView.m; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				C52989381D463FFB0058C829 /* TabItem.swift */,
+				4FA1997E1E708D380035B7D2 /* Basket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				C529893D1D463FFB0058C829 /* StubContentViewController.swift */,
 				4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */,
 				4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */,
+				4FA199801E70C22C0035B7D2 /* BasketViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,10 +347,12 @@
 				C529894F1D463FFB0058C829 /* ExampleTableViewCell.swift in Sources */,
 				C52989491D463FFB0058C829 /* TabSwitcherItemsProvider.swift in Sources */,
 				C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */,
+				4FA1997F1E708D380035B7D2 /* Basket.swift in Sources */,
 				4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */,
 				4F4515711E69AEA300CE8751 /* TTSegmentedControl.swift in Sources */,
 				C529894E1D463FFB0058C829 /* StubContentViewController.swift in Sources */,
 				4F1B59C61E65F8C8002C90E7 /* Extensions.swift in Sources */,
+				4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */,
 				C52989551D463FFB0058C829 /* UIFont+Zeplin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

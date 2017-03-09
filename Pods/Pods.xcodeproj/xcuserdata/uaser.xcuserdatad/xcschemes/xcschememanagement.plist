@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Money.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Example.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ValueCoding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7E44E0DE987E02A711D3751A63046A45</key>
+		<key>AEDB6D448E957630CD14980104634F66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6E55CA43FB5A565FB45A242B26346F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F92DB32C184D16E1BCE31225C1E4CD61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FFA93B88FE87E5C2681660838BE3ED55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
