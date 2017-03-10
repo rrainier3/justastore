@@ -16,7 +16,7 @@ class BasketTableViewCell: UITableViewCell {
             
             setupNameAndProductImage()
             
-            detailTextLabel?.text = product?.desc
+            detailTextLabel?.text = product?.subdesc
             
             if let seconds = product?.timestamp?.doubleValue {
                 let timestampDate = NSDate(timeIntervalSince1970: seconds)
@@ -31,6 +31,10 @@ class BasketTableViewCell: UITableViewCell {
     }
     
     private func setupNameAndProductImage() {
+
+		self.textLabel?.text = product?.desc
+
+		self.ProductImageView.image = product?.normalImage
         
     }
     

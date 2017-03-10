@@ -12,6 +12,8 @@ var basket: Array = [Product]()
 
 class BasketViewController: UITableViewController {
 
+	let cellId = "cellId"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +34,16 @@ class BasketViewController: UITableViewController {
         let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
         
         navigationItem.leftBarButtonItem = leftButton
+        
+        self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        // Setup and configure dataSource!
+        
+        self.tableView.dataSource = self
+        
+        DispatchQueue.main.async(execute: {
+            self.tableView.reloadData()
+        })
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,7 +65,7 @@ class BasketViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,15 +74,21 @@ class BasketViewController: UITableViewController {
         return ProductItemsProvider.items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
 
         // Configure the cell...
+        let product = ProductItemsProvider.items[indexPath.row]
+        
+        // Set product to trigger didSet() in BasketTableViewCell instance
+        cell.product = product
 
         return cell
     }
-    */
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
 
     /*
     // Override to support conditional editing of the table view.
