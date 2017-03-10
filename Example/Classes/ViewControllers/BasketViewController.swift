@@ -41,6 +41,9 @@ class BasketViewController: UITableViewController {
         
         self.tableView.dataSource = self
         
+        // Remove separator for empty cells
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
         })
