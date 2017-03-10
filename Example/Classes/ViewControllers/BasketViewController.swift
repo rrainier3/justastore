@@ -3,10 +3,12 @@
 //  Example
 //
 //  Created by RayRainier on 3/8/17.
-//  Copyright © 2017 Yalantis. All rights reserved.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
 
 import UIKit
+
+var basket: Array = [Product]()
 
 class BasketViewController: UITableViewController {
 
@@ -56,7 +58,8 @@ class BasketViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        
+        return ProductItemsProvider.items.count
     }
 
     /*

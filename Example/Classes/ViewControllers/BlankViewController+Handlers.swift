@@ -93,6 +93,11 @@ extension BlankViewController {
         print(giBadgeView.badgeValue)
         
         // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
+
+        
+        //let product = Product()
+        
+        
     }
     
     // #selector handle basketButton action
