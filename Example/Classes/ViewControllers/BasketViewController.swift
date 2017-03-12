@@ -28,7 +28,7 @@ class BasketViewController: UITableViewController {
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.tintColor = refTintColor
         
-        let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
+        let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
         navigationItem.leftBarButtonItem = leftButton
         
         self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)

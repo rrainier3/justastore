@@ -15,10 +15,7 @@ class BlankViewController: UIViewController {
         super.viewDidLoad()
         
 
-        UINavigationBar.appearance().barTintColor = .white
-
-        // How to set backgroundImage of navBar
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "bluegreen")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
+		setupNavigationBar()
         
         setupNavigationButtons()
         
@@ -26,6 +23,16 @@ class BlankViewController: UIViewController {
                 
     }
     
+    func setupNavigationBar() {
+    
+        UINavigationBar.appearance().barTintColor = .white
+        navigationController?.navigationBar.shadowImage = UIImage(named: "TransparentPixel1")
+        let pixelImage = UIImage(named: "Pixel1")
+        navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
+        
+        // How to set backgroundImage of navBar
+        //        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "bluegreen")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
+    }
 
 	// How to change navBar height
 //    override func viewDidAppear(_ animated: Bool) {

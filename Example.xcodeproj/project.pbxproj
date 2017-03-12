@@ -16,6 +16,7 @@
 		4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199801E70C22C0035B7D2 /* BasketViewController.swift */; };
 		4FA199831E7192E10035B7D2 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */; };
 		4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */; };
+		4FE6AE401E75E8B50051D024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE6AE3F1E75E8B50051D024 /* Assets.xcassets */; };
 		BDA877807C39FEE4E02665AB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */; };
 		C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52989201D463F0C0058C829 /* AppDelegate.swift */; };
 		C52989261D463F0C0058C829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52989241D463F0C0058C829 /* Main.storyboard */; };
@@ -34,7 +35,6 @@
 		C52989531D463FFB0058C829 /* GothamProMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C52989451D463FFB0058C829 /* GothamProMedium.ttf */; };
 		C52989541D463FFB0058C829 /* GothamProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C52989461D463FFB0058C829 /* GothamProRegular.ttf */; };
 		C52989551D463FFB0058C829 /* UIFont+Zeplin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */; };
-		C52989571D46425E0058C829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52989561D46425E0058C829 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +49,7 @@
 		4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeViewHeader.h; sourceTree = "<group>"; };
 		4FE372691E6BB0AF00C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
 		4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIBadgeView.m; sourceTree = "<group>"; };
+		4FE6AE3F1E75E8B50051D024 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB39A8721E969C6131CF725 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C529891D1D463F0C0058C829 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +71,6 @@
 		C52989451D463FFB0058C829 /* GothamProMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProMedium.ttf; sourceTree = "<group>"; };
 		C52989461D463FFB0058C829 /* GothamProRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProRegular.ttf; sourceTree = "<group>"; };
 		C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Zeplin.swift"; sourceTree = "<group>"; };
-		C52989561D46425E0058C829 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F77D867BB34A2EA62BD3C881 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C529893C1D463FFB0058C829 /* Main.storyboard */,
-				C52989561D46425E0058C829 /* Assets.xcassets */,
+				4FE6AE3F1E75E8B50051D024 /* Assets.xcassets */,
 				C52989471D463FFB0058C829 /* UIFont+Zeplin.swift */,
 				4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */,
 				4F1B59C51E65F8C8002C90E7 /* Extensions.swift */,
@@ -281,10 +281,10 @@
 				C52989531D463FFB0058C829 /* GothamProMedium.ttf in Resources */,
 				C529892B1D463F0C0058C829 /* LaunchScreen.storyboard in Resources */,
 				C52989521D463FFB0058C829 /* GothamProBold.ttf in Resources */,
+				4FE6AE401E75E8B50051D024 /* Assets.xcassets in Resources */,
 				C52989501D463FFB0058C829 /* ExampleTableViewCell.xib in Resources */,
 				C52989261D463F0C0058C829 /* Main.storyboard in Resources */,
 				C529894D1D463FFB0058C829 /* Main.storyboard in Resources */,
-				C52989571D46425E0058C829 /* Assets.xcassets in Resources */,
 				C52989541D463FFB0058C829 /* GothamProRegular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

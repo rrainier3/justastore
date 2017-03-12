@@ -31,7 +31,7 @@ extension BlankViewController {
         
         self.view.addSubview(containerView)
         
-        containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
+        containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16).isActive = true
         containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
@@ -126,7 +126,7 @@ extension BlankViewController {
         navigationBar.backgroundColor = .white
         navigationBar.tintColor = refTintColor
         
-        let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
+        let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
         
 		// let's setup the rightButton for our basket
         
