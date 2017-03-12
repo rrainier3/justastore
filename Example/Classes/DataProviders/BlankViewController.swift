@@ -14,14 +14,11 @@ class BlankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//		// How to get rid of shade on navBar
-//
-//        //UINavigationBar.appearance().isTranslucent = false
-//        //UINavigationBar.appearance().backgroundColor = .white
-//        
-//        // How to set backgroundImage of navBar
-//        
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "green_sprite")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
+
+        UINavigationBar.appearance().barTintColor = .white
+
+        // How to set backgroundImage of navBar
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "bluegreen")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
         
         setupNavigationButtons()
         
@@ -30,15 +27,16 @@ class BlankViewController: UIViewController {
     }
     
 
-//	// How to change navBar height
+	// How to change navBar height
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        
-//        let height: CGFloat = 80 //whatever height you want
+//        let height: CGFloat = 50 //whatever height you want
+//        
 //        let bounds = self.navigationController!.navigationBar.bounds
 //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-//        
 //    }
+    
     
     let segmentedControl: TTSegmentedControl = {
         let segmentedControl = TTSegmentedControl()
