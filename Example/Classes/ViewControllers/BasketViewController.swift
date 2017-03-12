@@ -16,43 +16,35 @@ class BasketViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.view.backgroundColor = .white
         self.title = "Your Order"
+        
         let uiFont = UIFont.navigationTitleFont()!
         let uiColor = refTintColor
-        
         let titleAttributes = [NSFontAttributeName: uiFont as UIFont, NSForegroundColorAttributeName: uiColor as UIColor]
-        
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
-        self.view.backgroundColor = .white
-        
         let navigationBar = self.navigationController?.navigationBar
-        
         navigationBar?.tintColor = refTintColor
         
         let leftButton =  UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(triggerLeftButton))
-        
         navigationItem.leftBarButtonItem = leftButton
         
         self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)
         
         // Setup and configure dataSource!
-        
         self.tableView.dataSource = self
         
         // Remove separator for empty cells
-        self.tableView.tableFooterView = UIView(frame: .zero)
+//        self.tableView.tableFooterView = UIView(frame: .zero)
+        // or Remove separator line on all cells
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
         })
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func triggerLeftButton() {
