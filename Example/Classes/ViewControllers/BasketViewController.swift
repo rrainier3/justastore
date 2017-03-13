@@ -75,6 +75,9 @@ class BasketViewController: UITableViewController {
         // Configure the cell...
         let product = ProductItemsProvider.items[indexPath.row]
         
+        // Turn off highlighter
+        cell.selectionStyle = .none
+        
         // Set product to trigger didSet() in BasketTableViewCell instance
         cell.product = product
 

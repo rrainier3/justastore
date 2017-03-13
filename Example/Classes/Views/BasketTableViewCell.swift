@@ -45,7 +45,7 @@ class BasketTableViewCell: UITableViewCell {
         let width = bounds.width
         let height = bounds.height
         
-        // Boxing our UITableViewCell
+        // In the box
         let someFrame = CGRect(x: 16, y: 4, width: width - 32, height: height - 8)
         containerView.frame = someFrame
         
@@ -57,8 +57,6 @@ class BasketTableViewCell: UITableViewCell {
     
     let containerView: UIView = {
         let container = UIView()
-        //container.layer.borderColor = UIColor.black.cgColor
-        //container.layer.borderWidth = 1
         container.backgroundColor = UIColor(r: 245, g: 245, b: 245)
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.masksToBounds = true
@@ -79,7 +77,6 @@ class BasketTableViewCell: UITableViewCell {
         label.text = "HH:MM:SS"
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = refTintColor
-        //label.textColor = UIColor.lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -88,32 +85,17 @@ class BasketTableViewCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         addSubview(containerView)
-//        containerView.addSubview(ProductImageView)
-//        containerView.addSubview(textLabel!)
-//        containerView.addSubview(detailTextLabel!)
-//        containerView.addSubview(timeLabel)
-
-        // x,y,width,height constraints
-//        containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
-//        //containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        containerView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
-//        containerView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-//        //containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-//        containerView.widthAnchor.constraint(equalToConstant: self.bounds.width).isActive = true
-//        containerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, constant: 0).isActive = true
+        addSubview(ProductImageView)
+//        addSubview(textLabel!)
+//        addSubview(detailTextLabel!)
+//        addSubview(timeLabel)
         
         // x,y,width,height constraints
-//    	ProductImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8).isActive = true
-//        ProductImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
-//        ProductImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
-//        ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-//        ProductImageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
+        ProductImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+        ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
         
-        
-//        ProductImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-//        ProductImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-//        ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-//        ProductImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
         
 //        textLabel?.leftAnchor.constraint(equalTo: ProductImageView.leftAnchor, constant: -4).isActive = true
 //		textLabel?.topAnchor.constraint(equalTo: ProductImageView.topAnchor, constant: 2).isActive = true
