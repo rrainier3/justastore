@@ -18,13 +18,12 @@ extension UIColor {
         )
     }
     
-    class func RGBInt(_ r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor {
-    	return UIColor(
-    		red: CGFloat((r)/255),
-            green: CGFloat((g)/255),
-            blue: CGFloat((b)/255),
-            alpha: CGFloat(alpha)
-        )
+    convenience public init(r: CGFloat, g: CGFloat, b: CGFloat) {
+        self.init(r: r, g: g, b: b, a: 1)
+    }
+    
+    convenience public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
 }
 

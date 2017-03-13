@@ -9,9 +9,13 @@ import UIKit
 
 extension UIFont {
     
-	class func navigationTitleFont() -> UIFont? {
+	class func largeTitleFont() -> UIFont? {
 		return UIFont(name: "GothamPro-Black", size: 20.0)
 	}
+    
+    class func navigationTitleFont() -> UIFont? {
+        return UIFont(name: "GothamPro", size: 20.0)
+    }
 
 	class func cellTitleFont() -> UIFont? {
 		return UIFont(name: "GothamPro-Medium", size: 18.0)
@@ -24,5 +28,16 @@ extension UIFont {
 	class func cellSubtitleFont() -> UIFont? {
 		return UIFont(name: "GothamPro-Medium", size: 12.0)
 	}
+
+    class func regularTitleFont18() -> UIFont? {
+        return UIFont(name: "GothamPro", size: 18.0)
+    }
+
+    class func regularTitleFont16() -> UIFont? {
+        return UIFont(name: "GothamPro", size: 16.0)
+    }
     
+    class func regularTitleFont12() -> UIFont? {
+        return UIFont(name: "GothamPro", size: 12.0)
+    }
 }

@@ -60,13 +60,13 @@ extension ExampleViewContoller: ColorMatchTabsViewControllerDataSource {
         switch index {
         
             case 1:
-                titleLabel.text = "Starbucks"
+                titleLabel.text = "HONG-NING"
             case 2:
-                titleLabel.text = "JoFen"
+                titleLabel.text = "JO-FEN"
             case 3:
-                titleLabel.text = "Portillos"
+                titleLabel.text = "STARBUCKS"
             default:
-                titleLabel.text = "HongNing"
+                titleLabel.text = "WHOLEFOODS"
             
         }
         

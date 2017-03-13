@@ -37,7 +37,7 @@ class BasketViewController: UITableViewController {
         self.tableView.dataSource = self
         
         // Remove separator for empty cells
-//        self.tableView.tableFooterView = UIView(frame: .zero)
+        self.tableView.tableFooterView = UIView(frame: .zero)
         // or Remove separator line on all cells
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
