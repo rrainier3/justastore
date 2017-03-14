@@ -46,7 +46,7 @@ class BasketTableViewCell: UITableViewCell {
         let height = bounds.height
         
         // In the box
-        let someFrame = CGRect(x: 16, y: 4, width: width - 32, height: height - 8)
+        let someFrame = CGRect(x: 28, y: 4, width: width - 48, height: height - 8)
         containerView.frame = someFrame
         
         // overriding textLabels' constraints in UITableViewCell
@@ -65,10 +65,12 @@ class BasketTableViewCell: UITableViewCell {
     
     let ProductImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "product_card1")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         //imageView.layer.cornerRadius = 24
         //imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -92,7 +94,7 @@ class BasketTableViewCell: UITableViewCell {
         
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
-        ProductImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+        ProductImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 28).isActive = true
         ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
         
