@@ -48,12 +48,18 @@ class BasketViewController: UITableViewController {
     }
     
     func triggerLeftButton() {
+        
         dismiss(animated: true, completion: nil)
+		self.view = nil
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        self.view = nil
+        
     }
 
     // MARK: - Table view data source

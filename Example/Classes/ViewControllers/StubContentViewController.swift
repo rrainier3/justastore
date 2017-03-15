@@ -84,12 +84,11 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     // implement ChangeViewProtocol method
     func loadNewScreen(controller: UIViewController) {
         
-            let destViewController = BlankViewController()
-            
-            let navController = UINavigationController(rootViewController: destViewController)
-        
-            // we use self.show instead of self.present(controller)
-        	self.show(navController, sender: self)
+        let destViewController = BlankViewController()
+        let navController = UINavigationController(rootViewController: destViewController)
+        // we use self.show instead of self.present(controller)
+        self.show(navController, sender: self)
+
     }
     
     

@@ -94,20 +94,13 @@ extension BlankViewController {
         
         // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
 
-        
-        //let product = Product()
-        
-        
     }
     
     // #selector handle basketButton action
     func handleBasketButton() {
         
-		print("BASKET Button pressed!")
-        
-        let basketViewController = BasketViewController()
-        
-        self.navigationController?.pushViewController(basketViewController, animated: true)
+        let presentingVC = UINavigationController(rootViewController: BasketViewController())
+        self.navigationController?.present(presentingVC, animated: true, completion: nil)
         
     }
     
@@ -149,6 +142,8 @@ extension BlankViewController {
     
     @objc fileprivate func triggerLeftButton() {
         dismiss(animated: true, completion: nil)
+
+		self.view = nil
     }
     
 }

@@ -144,8 +144,6 @@ class BlankViewController: UIViewController {
     
     let addButton: UIButton = {
         let button = UIButton(type: .system)
-        //button.backgroundColor = UIColor(red: 7/255, green: 184/255, blue: 248/255, alpha: 1)
-        
         button.backgroundColor = refTintColor
         
         button.setTitle("O R D E R", for: .normal)
