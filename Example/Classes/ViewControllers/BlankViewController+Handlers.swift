@@ -101,7 +101,6 @@ extension BlankViewController {
         
         let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
-        
     }
     
     func setupNavigationButtons() {
@@ -121,8 +120,7 @@ extension BlankViewController {
         
         let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
         
-		// let's setup the rightButton for our basket
-        
+		// let's setup the rightButton for our basket        
         let imageSize:CGSize = CGSize(width: 24, height: 24)
         let rightButton = UIButton(type: .custom)
         rightButton.frame = CGRect(x: 96, y: 96, width: 26, height: 26)

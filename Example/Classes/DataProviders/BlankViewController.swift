@@ -99,7 +99,6 @@ class BlankViewController: UIViewController {
         label.numberOfLines = 0 	// this causes text to wrap-around
         label.isHidden = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.textColor = UIColor(red: 13/255, green: 187/255, blue: 243/255, alpha: 1)
         label.textColor = UIColor.darkGray
         return label
     }()

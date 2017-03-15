@@ -25,6 +25,11 @@ class BasketViewController: UITableViewController {
         let titleAttributes = [NSFontAttributeName: uiFont as UIFont, NSForegroundColorAttributeName: uiColor as UIColor]
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
+        UINavigationBar.appearance().barTintColor = .white
+        navigationController?.navigationBar.shadowImage = UIImage(named: "TransparentPixel1")
+        let pixelImage = UIImage(named: "Pixel1")
+        navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
+        
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.tintColor = refTintColor
         
