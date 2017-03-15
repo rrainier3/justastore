@@ -53,7 +53,7 @@ class BasketViewController: UITableViewController {
     }
     
     func triggerLeftButton() {
-        
+
         dismiss(animated: true, completion: nil)
 		self.view = nil
     }
