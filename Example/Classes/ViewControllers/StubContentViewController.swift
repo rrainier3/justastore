@@ -18,13 +18,32 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     var type: Type!
     
-    fileprivate var objects: [UIImage] = []
+    //fileprivate var objects: [UIImage] = []
+    
+    fileprivate var objects: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let filterProducts = ProductItemsProvider.items
+        let products69 = filterProducts.filter({ $0.price == 69 })
+        let products49 = filterProducts.filter({ $0.price == 49 })
+        let products100 = filterProducts.filter({ $0.price == 100 })
+        
         setupTableView()
-        setupDataSource()
+        
+        switch type! {
+            case .products:
+                self.objects = products69
+            case .reviews:
+                self.objects = products49
+            case .users:
+                self.objects = products100
+            case .venues:
+                self.objects = products49
+        }
+        
+        //setupDataSource()
     }
     
     fileprivate func setupTableView() {
@@ -34,15 +53,15 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         tableView.register(UINib(nibName: "ExampleTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     
-    fileprivate func setupDataSource() {
-        if type == .products || type == .reviews {
-            self.objects = [UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
-        } else if type == .users {
-            self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!]
-        } else if type == .venues {
-            self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!, UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
-        }
-    }
+//    fileprivate func setupDataSource() {
+//        if type == .products || type == .reviews {
+//            self.objects = [UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
+//        } else if type == .users {
+//            self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!]
+//        } else if type == .venues {
+//            self.objects = [UIImage(named: "venue_card1")!, UIImage(named: "venue_card2")!, UIImage(named: "product_card1")!, UIImage(named: "product_card2")!]
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
@@ -50,13 +69,14 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExampleTableViewCell
-        let image = objects[(indexPath as NSIndexPath).row]
+        
+        let image = objects[(indexPath as NSIndexPath).row].normalImage
         
 		cell.delegate = self		// to enable ChangeViewProtocol
         
         flyingImage = image
         
-        cell.apply(image)
+        cell.apply(flyingImage)
         
         return cell
     }
