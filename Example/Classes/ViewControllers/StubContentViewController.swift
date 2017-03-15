@@ -35,9 +35,9 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         switch type! {
             case .products:
                 self.objects = products69
-            case .reviews:
-                self.objects = products49
             case .users:
+                self.objects = products49
+            case .reviews:
                 self.objects = products100
             case .venues:
                 self.objects = products49

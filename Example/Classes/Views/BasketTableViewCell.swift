@@ -95,7 +95,7 @@ class BasketTableViewCell: UITableViewCell {
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
         ProductImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 28).isActive = true
-        ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        ProductImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
         
         

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "potstickers.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "potstickers@2x.jpg",
       "scale" : "2x"
     },
     {
