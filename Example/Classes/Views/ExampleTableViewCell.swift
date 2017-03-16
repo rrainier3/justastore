@@ -23,6 +23,18 @@ class ExampleTableViewCell: UITableViewCell {
         contentImageView.image = image
         
         setupImageForGesture(contentView: contentImageView)
+        
+    }
+    
+    override func layoutSubviews() {
+
+        let boxer = UIView()
+        boxer.clipsToBounds = true
+        boxer.backgroundColor = UIColor(r: 50, g: 50, b: 50, a:0.3)
+        
+        contentImageView.addSubview(boxer)
+        
+        _ = boxer.anchor(contentImageView.bottomAnchor, left: contentImageView.leftAnchor, bottom: nil, right: contentImageView.rightAnchor, topConstant: -59, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: contentImageView.bounds.width, heightConstant: 60)
     }
 
     fileprivate func setupImageForGesture(contentView: UIImageView) {
@@ -34,7 +46,7 @@ class ExampleTableViewCell: UITableViewCell {
         
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectImage)))
         imageView.isUserInteractionEnabled = true
-        
+
     }
     
     @objc fileprivate func handleSelectImage() {
@@ -50,5 +62,5 @@ class ExampleTableViewCell: UITableViewCell {
         
     }
     
-
+    
 }
