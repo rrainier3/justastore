@@ -15,6 +15,7 @@ protocol ChangeViewProtocol: NSObjectProtocol {
 class ExampleTableViewCell: UITableViewCell {
 
 	var delegate: ChangeViewProtocol?
+    var product: Product?
     
     @IBOutlet fileprivate weak var contentImageView: UIImageView!
 
@@ -26,15 +27,27 @@ class ExampleTableViewCell: UITableViewCell {
         
     }
     
+    func applyProduct(_ theproduct: Product) {
+        self.product = theproduct
+    }
+    
     override func layoutSubviews() {
 
         let boxer = UIView()
         boxer.clipsToBounds = true
         boxer.backgroundColor = UIColor(r: 50, g: 50, b: 50, a:0.3)
         
+        let title = UILabel()
+        title.text = self.product?.desc
+        title.font = UIFont.menuTitleFont()
+        title.textColor = .white
+        
         contentImageView.addSubview(boxer)
+        contentImageView.addSubview(title)
         
         _ = boxer.anchor(contentImageView.bottomAnchor, left: contentImageView.leftAnchor, bottom: nil, right: contentImageView.rightAnchor, topConstant: -59, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: contentImageView.bounds.width, heightConstant: 60)
+        
+        _ = title.anchor(contentImageView.bottomAnchor, left: contentImageView.leftAnchor, bottom: nil, right: nil, topConstant: -54, leftConstant: 14, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 30)
     }
 
     fileprivate func setupImageForGesture(contentView: UIImageView) {

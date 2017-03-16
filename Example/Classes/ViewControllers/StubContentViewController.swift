@@ -72,12 +72,16 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         
         let image = objects[(indexPath as NSIndexPath).row].normalImage
         
+        let product = objects[(indexPath as NSIndexPath).row]
+        
 		cell.delegate = self		// to enable ChangeViewProtocol
         
         flyingImage = image
         
         cell.apply(flyingImage)
         
+        cell.applyProduct(product)
+                
         return cell
     }
     
