@@ -31,23 +31,45 @@ class ExampleTableViewCell: UITableViewCell {
         self.product = theproduct
     }
     
+    let title: UILabel = {
+        let thisTitle = UILabel()
+        thisTitle.textColor = .white
+        thisTitle.clipsToBounds = true
+        thisTitle.font = UIFont.regularTitleFont16()
+        return thisTitle
+    }()
+    
+    let subTitle: UILabel = {
+        let thisTitle = UILabel()
+        thisTitle.textColor = .white
+        thisTitle.clipsToBounds = true
+        thisTitle.font = UIFont.regularTitleFont12()
+        return thisTitle
+    }()
+    
+    let boxer: UIView = {
+        let boxerView = UIView()
+        boxerView.clipsToBounds = true
+        boxerView.backgroundColor = UIColor(r: 50, g: 50, b: 50, a: 0.4)
+        return boxerView
+    }()
+    
     override func layoutSubviews() {
-
-        let boxer = UIView()
-        boxer.clipsToBounds = true
-        boxer.backgroundColor = UIColor(r: 50, g: 50, b: 50, a:0.3)
+		super.layoutSubviews()
         
-        let title = UILabel()
+        
         title.text = self.product?.desc
-        title.font = UIFont.menuTitleFont()
-        title.textColor = .white
+        subTitle.text = self.product?.subdesc
         
         contentImageView.addSubview(boxer)
         contentImageView.addSubview(title)
+        contentImageView.addSubview(subTitle)
         
         _ = boxer.anchor(contentImageView.bottomAnchor, left: contentImageView.leftAnchor, bottom: nil, right: contentImageView.rightAnchor, topConstant: -59, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: contentImageView.bounds.width, heightConstant: 60)
         
         _ = title.anchor(contentImageView.bottomAnchor, left: contentImageView.leftAnchor, bottom: nil, right: nil, topConstant: -54, leftConstant: 14, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 30)
+        
+        _ = subTitle.anchor(title.bottomAnchor, left: title.leftAnchor, bottom: nil, right: nil, topConstant: -2, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 
     fileprivate func setupImageForGesture(contentView: UIImageView) {
@@ -74,6 +96,5 @@ class ExampleTableViewCell: UITableViewCell {
         }
         
     }
-    
     
 }

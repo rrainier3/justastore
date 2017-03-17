@@ -70,9 +70,13 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExampleTableViewCell
         
-        let image = objects[(indexPath as NSIndexPath).row].normalImage
+        var image: UIImage!
         
-        let product = objects[(indexPath as NSIndexPath).row]
+        image = objects[(indexPath as NSIndexPath).row].normalImage
+        
+        var product: Product!
+        
+        product = objects[(indexPath as NSIndexPath).row]
         
 		cell.delegate = self		// to enable ChangeViewProtocol
         
@@ -81,7 +85,9 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         cell.apply(flyingImage)
         
         cell.applyProduct(product)
-                
+        
+        cell.clipsToBounds = true
+        
         return cell
     }
     
