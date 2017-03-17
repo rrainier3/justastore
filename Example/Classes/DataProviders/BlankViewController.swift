@@ -13,15 +13,16 @@ class BlankViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
 		setupNavigationBar()
         
         setupNavigationButtons()
         
         setupViews()
-                
+        
+        
     }
+    
     
     func setupNavigationBar() {
     

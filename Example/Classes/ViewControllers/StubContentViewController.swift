@@ -9,6 +9,7 @@
 import UIKit
 
 var flyingImage: UIImage!		// global image ;)
+var flyingProduct: Product!
 
 class StubContentViewController: UITableViewController, ChangeViewProtocol {
     
@@ -84,7 +85,8 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         
         cell.apply(flyingImage)
         
-        cell.applyProduct(product)
+        cell.product = product
+        //cell.applyProduct(product)
         
         cell.clipsToBounds = true
         
