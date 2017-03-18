@@ -11,18 +11,17 @@ import ColorMatchTabs
 
 class BlankViewController: UIViewController {
     
+	var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    	
 		setupNavigationBar()
         
         setupNavigationButtons()
         
         setupViews()
-        
-        
-    }
-    
+    }    
     
     func setupNavigationBar() {
     
@@ -35,7 +34,7 @@ class BlankViewController: UIViewController {
         //        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "bluegreen")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
     }
 
-	// How to change navBar height
+//  How to change navBar height
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        
@@ -44,7 +43,6 @@ class BlankViewController: UIViewController {
 //        let bounds = self.navigationController!.navigationBar.bounds
 //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
 //    }
-    
     
     let segmentedControl: TTSegmentedControl = {
         let segmentedControl = TTSegmentedControl()

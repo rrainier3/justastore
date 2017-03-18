@@ -13,13 +13,12 @@ protocol ChangeViewProtocol: NSObjectProtocol {
 }
 
 class ExampleTableViewCell: UITableViewCell {
-
+    
     var product: Product?
 	var delegate: ChangeViewProtocol?
-
     
     @IBOutlet fileprivate weak var contentImageView: UIImageView!
-
+	
     func apply(_ image: UIImage) {
     
         contentImageView.image = image
@@ -27,10 +26,6 @@ class ExampleTableViewCell: UITableViewCell {
         setupImageForGesture(contentView: contentImageView)
         
     }
-    
-//    func applyProduct(_ theproduct: Product) {
-//        self.product = theproduct
-//    }
     
     let title: UILabel = {
         let thisTitle = UILabel()
@@ -57,7 +52,6 @@ class ExampleTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
 		super.layoutSubviews()
-        
         
         title.text = self.product?.desc
         subTitle.text = self.product?.subdesc
@@ -90,7 +84,7 @@ class ExampleTableViewCell: UITableViewCell {
     
     	flyingImage = contentImageView.image
         flyingProduct = self.product
-    
+        
     	let blankViewController = BlankViewController()
         
         if delegate?.responds(to: #selector(ExampleTableViewCell.handleSelectImage)) != nil {
