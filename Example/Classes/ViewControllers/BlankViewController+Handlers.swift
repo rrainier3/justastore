@@ -8,6 +8,7 @@
 
 import UIKit
 import ColorMatchTabs
+import Money
 
 extension BlankViewController {
 
@@ -61,8 +62,8 @@ extension BlankViewController {
         _ = productSubLabel.anchor(productLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 3, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         // insert our priceLabel
-        let price = "\(flyingProduct.price!)"
-        priceLabel.text = price
+        let price: Money = Money(flyingProduct.price!)
+        priceLabel.text = "\(price)"
         priceLabel.font = UIFont.navigationTitleFont()
         containerView.addSubview(priceLabel)
         
