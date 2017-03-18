@@ -21,7 +21,7 @@ class BlankViewController: UIViewController {
         setupNavigationButtons()
         
         setupViews()
-    }    
+    }
     
     func setupNavigationBar() {
     
@@ -30,19 +30,7 @@ class BlankViewController: UIViewController {
         let pixelImage = UIImage(named: "Pixel1")
         navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
         
-        // How to set backgroundImage of navBar
-        //        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "bluegreen")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0)), for: .default)
     }
-
-//  How to change navBar height
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        let height: CGFloat = 50 //whatever height you want
-//        
-//        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-//    }
     
     let segmentedControl: TTSegmentedControl = {
         let segmentedControl = TTSegmentedControl()
@@ -69,7 +57,6 @@ class BlankViewController: UIViewController {
         label.numberOfLines = 0 	// this causes text to wrap-around
         label.isHidden = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.textColor = UIColor.fromRGB(0xf4ac06)
         label.textColor = UIColor(red: 1.00, green: 0.61, blue: 0.16, alpha: 1.00)
         return label
     }()

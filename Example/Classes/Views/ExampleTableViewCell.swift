@@ -88,11 +88,7 @@ class ExampleTableViewCell: UITableViewCell {
     	let blankViewController = BlankViewController()
         
         if delegate?.responds(to: #selector(ExampleTableViewCell.handleSelectImage)) != nil {
-            
-            delegate?.loadNewScreen(controller: blankViewController)
+            	delegate?.loadNewScreen(controller: blankViewController)
         }
-        
     }
-    
-    
 }
