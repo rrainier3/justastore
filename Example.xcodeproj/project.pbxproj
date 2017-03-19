@@ -15,6 +15,7 @@
 		4FA1997F1E708D380035B7D2 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1997E1E708D380035B7D2 /* Product.swift */; };
 		4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199801E70C22C0035B7D2 /* BasketViewController.swift */; };
 		4FA199831E7192E10035B7D2 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */; };
+		4FC8A2D91E7DFAC1002C6006 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8A2D81E7DFAC1002C6006 /* TotalTableViewCell.swift */; };
 		4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */; };
 		4FE6AE401E75E8B50051D024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE6AE3F1E75E8B50051D024 /* Assets.xcassets */; };
 		BDA877807C39FEE4E02665AB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBD9F0F308771F9AAB0EB5D /* Pods_Example.framework */; };
@@ -46,6 +47,7 @@
 		4FA1997E1E708D380035B7D2 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4FA199801E70C22C0035B7D2 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		4FC8A2D81E7DFAC1002C6006 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeViewHeader.h; sourceTree = "<group>"; };
 		4FE372691E6BB0AF00C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
 		4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIBadgeView.m; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				C529893F1D463FFB0058C829 /* ExampleTableViewCell.swift */,
 				4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */,
+				4FC8A2D81E7DFAC1002C6006 /* TotalTableViewCell.swift */,
 				C52989401D463FFB0058C829 /* ExampleTableViewCell.xib */,
 			);
 			path = Views;
@@ -361,6 +364,7 @@
 				C529894E1D463FFB0058C829 /* StubContentViewController.swift in Sources */,
 				4F1B59C61E65F8C8002C90E7 /* Extensions.swift in Sources */,
 				4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */,
+				4FC8A2D91E7DFAC1002C6006 /* TotalTableViewCell.swift in Sources */,
 				C52989551D463FFB0058C829 /* UIFont+Zeplin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

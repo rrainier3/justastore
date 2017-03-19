@@ -13,6 +13,7 @@ var basket: Array = [Product]()
 class BasketViewController: UITableViewController {
 
 	let cellId = "cellId"
+    let cellId2 = "cellId2"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,9 @@ class BasketViewController: UITableViewController {
         let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
         navigationItem.leftBarButtonItem = leftButton
         
+        // Register [UITableViewCell]'s here
         self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.register(TotalTableViewCell.self, forCellReuseIdentifier: cellId2)
         
         // Setup and configure dataSource!
         self.tableView.dataSource = self
@@ -71,18 +74,39 @@ class BasketViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return ProductItemsProvider.items.count
+        var numberOfRows: Int = ProductItemsProvider.items.count
+        
+        if section == 1 {
+        		numberOfRows = 1
+        }
+        
+        if numberOfRows == 0 && section == 0 { numberOfRows = 0 }		// show basket is empty!
+        
+        return numberOfRows
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
 
+        switch(indexPath.section) {
+            case 0:
+                cell.backgroundColor = UIColor.clear
+
+            case 1:
+            	let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
+                cell.backgroundColor = UIColor.clear
+            default:
+                fatalError("Unexpected section \(indexPath.section)")
+            
+        }
+        
         // Configure the cell...
         let product = ProductItemsProvider.items[indexPath.row]
         
@@ -91,7 +115,7 @@ class BasketViewController: UITableViewController {
         
         // Set product to trigger didSet() in BasketTableViewCell instance
         cell.product = product
-
+        
         return cell
     }
 
