@@ -50,10 +50,53 @@ class BasketViewController: UITableViewController {
         // or Remove separator line on all cells
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+        // prepare for swipe step-1
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
         })
 
+    }
+    
+    // prepare for swipe step-2
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    
+    	var canDelete: Bool = true
+        
+        if indexPath.section == 1 { canDelete = false }
+        
+        return canDelete
+    }
+    
+    // prepare for swipe delete step-3
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+//        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+//        
+//        let message = self.messages[indexPath.row]
+//        
+//        if let chatPartnerId = message.chatPartnerId() {
+//            
+//            FIRDatabase.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
+//                
+//                if error != nil {
+//                    print("Failed to delete message:", error!)
+//                    return
+//                }
+//                
+//                /*			Demo one way of updating table but not that safe ...
+//                 self.messages.removeAtIndex(indexPath.row)
+//                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//                 */
+//                // Proper way is to remove key-value from messagesDictionary
+//                //	since it is used in call to reloadData()
+//                self.messagesDictionary.removeValue(forKey: chatPartnerId)
+//                self.attemptReloadOfTable()
+//                
+//            })
+//        }
     }
     
     func triggerLeftButton() {
@@ -83,7 +126,10 @@ class BasketViewController: UITableViewController {
         		numberOfRows = 1
         }
         
-        if numberOfRows == 0 && section == 0 { numberOfRows = 0 }		// show basket is empty!
+        if numberOfRows == 0 && section == 0 { 	// show basket is empty!
+        	numberOfRows = 0
+            basket = [Product]()
+        }
         
         return numberOfRows
     }
