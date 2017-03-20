@@ -44,7 +44,7 @@ class BasketTableViewCell: UITableViewCell {
     
     let containerView: UIView = {
         let container = UIView()
-        container.backgroundColor = UIColor(r: 248, g: 248, b: 248)
+        container.backgroundColor = UIColor(r: 250, g: 250, b: 250)
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.masksToBounds = true
         return container

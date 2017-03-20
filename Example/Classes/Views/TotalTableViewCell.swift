@@ -38,10 +38,18 @@ class TotalTableViewCell: UITableViewCell {
     
     let containerView: UIView = {
         let container = UIView()
-        container.backgroundColor = UIColor(r: 242, g: 242, b: 242)
+        container.backgroundColor = UIColor(r: 250, g: 250, b: 250)
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.masksToBounds = true
         return container
+    }()
+    
+    let separatorLineView: UIView = {
+        let thinLine = UIView()
+        thinLine.backgroundColor = refTintColor
+        thinLine.translatesAutoresizingMaskIntoConstraints = false
+        thinLine.layer.masksToBounds = true
+        return thinLine
     }()
     
     let ProductImageView: UIImageView = {
@@ -79,6 +87,8 @@ class TotalTableViewCell: UITableViewCell {
         containerView.addSubview(ProductImageView)
 		containerView.addSubview(titleLabel)
         containerView.addSubview(totalLabel)
+        addSubview(separatorLineView)
+        
         
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
@@ -87,9 +97,10 @@ class TotalTableViewCell: UITableViewCell {
         ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
 
         _ = titleLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 14, leftConstant: 120, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 18)
-
         
         _ = totalLabel.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 14, leftConstant: 0, bottomConstant: 0, rightConstant: 60, widthConstant: 0, heightConstant: 18)
+        
+        _ = separatorLineView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 28, bottomConstant: 0, rightConstant: 0, widthConstant: self.bounds.width + 8, heightConstant: 1)
         
     }
 
