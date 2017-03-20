@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Money
 
 var basket: Array = [Product]()
 
@@ -94,18 +95,6 @@ class BasketViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
-
-        switch(indexPath.section) {
-            case 0:
-                cell.backgroundColor = UIColor.clear
-
-            case 1:
-            	let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
-                cell.backgroundColor = UIColor.clear
-            default:
-                fatalError("Unexpected section \(indexPath.section)")
-            
-        }
         
         // Configure the cell...
         let product = ProductItemsProvider.items[indexPath.row]
@@ -116,11 +105,30 @@ class BasketViewController: UITableViewController {
         // Set product to trigger didSet() in BasketTableViewCell instance
         cell.product = product
         
+        switch(indexPath.section) {
+        case 0:
+            cell.backgroundColor = UIColor.clear            
+            cell.textLabel?.text = product.desc
+            cell.detailTextLabel?.text = product.subdesc
+            cell.ProductImageView.image = product.normalImage
+            
+            let price: Money = Money(product.price!)
+            cell.priceLabel.text = "\(price)"
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
+            cell.backgroundColor = UIColor.clear
+            cell.product = nil
+
+        default:
+            fatalError("Unexpected section \(indexPath.section)")
+            
+        }
+
         return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 108
+        return 100
     }
 
     /*
