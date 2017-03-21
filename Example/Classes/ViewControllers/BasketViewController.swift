@@ -53,11 +53,8 @@ class BasketViewController: UITableViewController {
         // prepare for swipe step-1
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
-        
-        DispatchQueue.main.async(execute: {
-            self.tableView.reloadData()
-        })
-
+        // Reload
+        self.attemptReloadOfTable()
     }
     
     // prepare for swipe step-2
@@ -70,21 +67,27 @@ class BasketViewController: UITableViewController {
         return canDelete
     }
     
+    var blankViewControllerRef = BlankViewController()
+    
     // prepare for swipe delete step-3
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
-
-        //  Proper way is to remove key-value from basket
-        //  since it is used in call to reloadData()
         
         if editingStyle == .delete {
             
             basket.remove(at: indexPath.row)
-            
+
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
-			self.attemptReloadOfTable()
+            guard basket.count != 0 else {
+                dismiss(animated: true, completion: nil)		// basket is now empty go back to previous
+                return
+            }
+            
+            // Attemp to ReEnter basket to clear totalSection
+            blankViewControllerRef.handleBasketButton()
+            
         }
     }
     
@@ -119,7 +122,6 @@ class BasketViewController: UITableViewController {
         
         var numberOfRows: Int = basket.count
         //var numberOfRows: Int = ProductItemsProvider.items.count
-
         
         if section == 1 {
         		numberOfRows = 1
