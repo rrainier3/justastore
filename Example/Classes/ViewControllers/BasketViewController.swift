@@ -72,35 +72,32 @@ class BasketViewController: UITableViewController {
     
     // prepare for swipe delete step-3
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+
+        //  Proper way is to remove key-value from basket
+        //  since it is used in call to reloadData()
         
-//        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-//        
-//        let message = self.messages[indexPath.row]
-//        
-//        if let chatPartnerId = message.chatPartnerId() {
-//            
-//            FIRDatabase.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
-//                
-//                if error != nil {
-//                    print("Failed to delete message:", error!)
-//                    return
-//                }
-//                
-//                /*			Demo one way of updating table but not that safe ...
-//                 self.messages.removeAtIndex(indexPath.row)
-//                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//                 */
-//                // Proper way is to remove key-value from messagesDictionary
-//                //	since it is used in call to reloadData()
-//                self.messagesDictionary.removeValue(forKey: chatPartnerId)
-//                self.attemptReloadOfTable()
-//                
-//            })
-//        }
+        if editingStyle == .delete {
+            
+            basket.remove(at: indexPath.row)
+            
+            // Note that indexPath is wrapped in an array:  [indexPath]
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+			self.attemptReloadOfTable()
+        }
+    }
+    
+    func attemptReloadOfTable() {
+        
+        // dispatch_asynch main thread
+        DispatchQueue.main.async(execute: {
+            self.tableView.reloadData()
+        })
+        
     }
     
     func triggerLeftButton() {
-
         dismiss(animated: true, completion: nil)
     }
     
