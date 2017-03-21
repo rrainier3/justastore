@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ChangeViewProtocol: NSObjectProtocol {
-    func loadNewScreen(controller: UIViewController) -> Void
-}
-
 class ExampleTableViewCell: UITableViewCell {
     
     var product: Product?

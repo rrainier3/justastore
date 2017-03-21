@@ -15,12 +15,16 @@ class BlankViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    	
+        
 		setupNavigationBar()
         
         setupNavigationButtons()
         
         setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        giBadgeView.badgeValue = basket.count			// reEntrant before viewDidLoad
     }
     
     func setupNavigationBar() {
@@ -146,7 +150,7 @@ class BlankViewController: UIViewController {
         return button
     }()
     
-    let giBadgeView: GIBadgeView = {
+    public var giBadgeView: GIBadgeView = {
         let badge = GIBadgeView()
         badge.topOffset = 6
         badge.rightOffset = 24

@@ -148,7 +148,8 @@ extension BlankViewController {
         
         rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
         
-        // setup the badge on the basket!
+        // setup the badge on the basket with counter!
+        giBadgeView.badgeValue = basket.count
         rightButton.addSubview(giBadgeView)
         
         

@@ -15,28 +15,13 @@ class BasketViewController: UITableViewController {
 
 	let cellId = "cellId"
     let cellId2 = "cellId2"
-
+    
+    var blankViewController = BlankViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .white
-        self.title = "Your Order"
         
-        let uiFont = UIFont.navigationTitleFont()!
-        let uiColor = refTintColor
-        let titleAttributes = [NSFontAttributeName: uiFont as UIFont, NSForegroundColorAttributeName: uiColor as UIColor]
-        self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
-        
-        UINavigationBar.appearance().barTintColor = .white
-        navigationController?.navigationBar.shadowImage = UIImage(named: "TransparentPixel1")
-        let pixelImage = UIImage(named: "Pixel1")
-        navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
-        
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.tintColor = refTintColor
-        
-        let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
-        navigationItem.leftBarButtonItem = leftButton
+        setupBasketNavigation()
         
         // Register [UITableViewCell]'s here
         self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)
@@ -67,11 +52,8 @@ class BasketViewController: UITableViewController {
         return canDelete
     }
     
-    var blankViewControllerRef = BlankViewController()
-    
     // prepare for swipe delete step-3
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-
         
         if editingStyle == .delete {
             
@@ -80,15 +62,39 @@ class BasketViewController: UITableViewController {
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
+            // basket is now empty go back to previous
             guard basket.count != 0 else {
-                dismiss(animated: true, completion: nil)		// basket is now empty go back to previous
+                dismiss(animated: true, completion: nil)
                 return
             }
             
             // Attemp to ReEnter basket to clear totalSection
-            blankViewControllerRef.handleBasketButton()
+            self.blankViewController.handleBasketButton()
             
         }
+    }
+    
+    func setupBasketNavigation() {
+    
+        self.view.backgroundColor = .white
+        self.title = "Your Order"
+        
+        let uiFont = UIFont.navigationTitleFont()!
+        let uiColor = refTintColor
+        let titleAttributes = [NSFontAttributeName: uiFont as UIFont, NSForegroundColorAttributeName: uiColor as UIColor]
+        self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
+        
+        UINavigationBar.appearance().barTintColor = .white
+        navigationController?.navigationBar.shadowImage = UIImage(named: "TransparentPixel1")
+        let pixelImage = UIImage(named: "Pixel1")
+        navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
+        
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.tintColor = refTintColor
+        
+        let leftButton =  UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(triggerLeftButton))
+        navigationItem.leftBarButtonItem = leftButton
+        
     }
     
     func attemptReloadOfTable() {
@@ -103,7 +109,6 @@ class BasketViewController: UITableViewController {
     func triggerLeftButton() {
         dismiss(animated: true, completion: nil)
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -139,34 +144,34 @@ class BasketViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
         
-        // Configure the cell...
-        let product = basket[indexPath.row]
-        //let product = ProductItemsProvider.items[indexPath.row]
-        
-        // Turn off highlighter
-        cell.selectionStyle = .none
-        
-        // Set product to trigger didSet() in BasketTableViewCell instance
-        cell.product = product
-        
-        switch(indexPath.section) {
-        case 0:
-            cell.backgroundColor = UIColor.clear            
-            cell.textLabel?.text = product.desc
-            cell.detailTextLabel?.text = product.subdesc
-            cell.ProductImageView.image = product.normalImage
+            // Configure the cell...
+            let product = basket[indexPath.row]
+            //let product = ProductItemsProvider.items[indexPath.row]
             
-            let price: Money = Money(product.price!)
-            cell.priceLabel.text = "\(price)"
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
-            cell.backgroundColor = UIColor.clear
-            cell.product = nil
+            // Turn off highlighter
+            cell.selectionStyle = .none
+            
+            // Set product to trigger didSet() in BasketTableViewCell instance
+            cell.product = product
+            
+            switch(indexPath.section) {
+            case 0:
+                cell.backgroundColor = UIColor.clear            
+                cell.textLabel?.text = product.desc
+                cell.detailTextLabel?.text = product.subdesc
+                cell.ProductImageView.image = product.normalImage
+                
+                let price: Money = Money(product.price!)
+                cell.priceLabel.text = "\(price)"
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
+                cell.backgroundColor = UIColor.clear
+                cell.product = nil
 
-        default:
-            fatalError("Unexpected section \(indexPath.section)")
-            
-        }
+            default:
+                fatalError("Unexpected section \(indexPath.section)")
+                
+            }
 
         return cell
     }

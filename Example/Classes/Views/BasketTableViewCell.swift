@@ -53,7 +53,7 @@ class BasketTableViewCell: UITableViewCell {
     let ProductImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "product_card1")
+        //imageView.image = UIImage(named: "product_card1")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
