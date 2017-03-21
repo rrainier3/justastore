@@ -120,7 +120,9 @@ class BasketViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        var numberOfRows: Int = ProductItemsProvider.items.count
+        var numberOfRows: Int = basket.count
+        //var numberOfRows: Int = ProductItemsProvider.items.count
+
         
         if section == 1 {
         		numberOfRows = 1
@@ -139,7 +141,8 @@ class BasketViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
         
         // Configure the cell...
-        let product = ProductItemsProvider.items[indexPath.row]
+        let product = basket[indexPath.row]
+        //let product = ProductItemsProvider.items[indexPath.row]
         
         // Turn off highlighter
         cell.selectionStyle = .none

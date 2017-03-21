@@ -18,12 +18,16 @@ extension BlankViewController {
         switch selectedIndex {
         case 1:
             priceLabel.text = "$19.95"
+            product?.price = Int(19.95)
         case 2:
         	priceLabel.text = "$49.50"
+            product?.price = Int(49.50)
         case 3:
         	priceLabel.text = "$75.00"
+            product?.price = Int(75.00)
         default:
             priceLabel.text = "$19.95"
+            product?.price = Int(19.95)
         }
         return
     }
@@ -98,11 +102,21 @@ extension BlankViewController {
         print(giBadgeView.badgeValue)
         
         // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
+        
+        // Add flyingProduct to Basket ;)
+        basket.append(flyingProduct)
+        
 
     }
     
     // #selector handle basketButton action
     func handleBasketButton() {
+        
+        giBadgeView.badgeValue = basket.count
+        
+        guard basket.count != 0 else {
+            return
+        }
         
         let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
