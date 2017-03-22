@@ -12,22 +12,23 @@ import Money
 
 extension BlankViewController {
 
+
     func changePriceLabel(_ selectedIndex: Int) {
     
     // we can implement this within a dictionary [index, value] returning value
         switch selectedIndex {
         case 1:
             priceLabel.text = "$19.95"
-            product?.price = Int(19.95)
+            flyingProduct?.price = 1995
         case 2:
         	priceLabel.text = "$49.50"
-            product?.price = Int(49.50)
+            flyingProduct?.price = 4950
         case 3:
-        	priceLabel.text = "$75.00"
-            product?.price = Int(75.00)
+        	priceLabel.text = "$74.99"
+            flyingProduct?.price = 7499
         default:
             priceLabel.text = "$19.95"
-            product?.price = Int(19.95)
+            flyingProduct?.price = 1995
         }
         return
     }
@@ -66,8 +67,9 @@ extension BlankViewController {
         _ = productSubLabel.anchor(productLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: nil, topConstant: 3, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         // insert our priceLabel
-        let price: Money = Money(flyingProduct.price!)
-        priceLabel.text = "\(price)"
+        
+        let thisMoney = Money(minorUnits: flyingProduct.price!)
+        priceLabel.text = "\(thisMoney)"
         priceLabel.font = UIFont.navigationTitleFont()
         containerView.addSubview(priceLabel)
         
@@ -103,9 +105,9 @@ extension BlankViewController {
         
         // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
         
-        // Add flyingProduct to Basket ;)
         basket.append(flyingProduct)
         
+        basket = checkBasketForDuplicates(basket) 
 
     }
     
@@ -120,6 +122,19 @@ extension BlankViewController {
         
         let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
+    }
+    
+    // check basket for duplicates
+    func checkBasketForDuplicates(_ basket: [Product]) -> [Product] {
+        
+        var result:[Product] = []
+        basket.forEach { (b) -> () in
+            if !result.contains (where: { $0.desc == b.desc }) {
+                result.append(b)
+            }
+        }
+        
+        return result
     }
     
     func setupNavigationButtons() {

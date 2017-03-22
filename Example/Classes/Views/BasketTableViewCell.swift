@@ -7,21 +7,22 @@
 //
 
 import UIKit
+import Money
 
 class BasketTableViewCell: UITableViewCell {
     
     var product: Product? {
         didSet {
             
-            prepareForReuse()
-            
-            //setupNameAndProductImage()
+            //setupProductPriceLabel()
         }
     }
     
-    private func setupNameAndProductImage() {
+    private func setupProductPriceLabel() {
 
-//		self.ProductImageView.image = product?.normalImage
+//  Implement in BasketViewController --->
+//        let price = Money(minorUnits: (flyingProduct?.price)!)
+//        priceLabel.text = "\(price)"
         
     }
     
@@ -90,7 +91,7 @@ class BasketTableViewCell: UITableViewCell {
         ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
         
-        _ = priceLabel.anchor(self.bottomAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: -30, leftConstant: 0, bottomConstant: 0, rightConstant: 32, widthConstant: 0, heightConstant: 18)
+        _ = priceLabel.anchor(self.bottomAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: -30, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 18)
         
     }
     

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class Product: NSObject {
     
     var sku: String?

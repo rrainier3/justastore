@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Money
 
 var flyingImage: UIImage!
 var flyingProduct: Product!
@@ -27,12 +28,15 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         super.viewDidLoad()
         
         let filterProducts = ProductItemsProvider.items
-        let products69 = filterProducts.filter({ $0.price == 69 })
-        let products49 = filterProducts.filter({ $0.price == 49 })
-        let products100 = filterProducts.filter({ $0.price == 100 })
+        
+        let products69 = filterProducts.filter({ $0.price == 4000 })
+        let products49 = filterProducts.filter({ $0.price == 6000 })
+        let products100 = filterProducts.filter({ $0.price == 1000 })
+        let products45 = filterProducts.filter({ $0.price == 4500 })
         
         setupTableView()
         
+        // setup 
         switch type! {
             case .products:
                 self.objects = products69
@@ -41,7 +45,7 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
             case .reviews:
                 self.objects = products100
             case .venues:
-                self.objects = products49
+                self.objects = products45
         }
         
         //setupDataSource()

@@ -51,12 +51,11 @@ class BlankViewController: UIViewController {
         segmentedControl.thumbGradientColors = [refTintColor, refTintColor]
         
         return segmentedControl
-        
     }()
     
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "$19.95"
+        label.text = "$1.99"
         label.textAlignment = .left
         label.numberOfLines = 0 	// this causes text to wrap-around
         label.isHidden = false
@@ -113,7 +112,7 @@ class BlankViewController: UIViewController {
         tv.textColor = UIColor(red: 95/255, green: 100/255, blue: 100/255, alpha: 1)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
-        tv.isHidden = false        
+        tv.isHidden = false
         // Let us style the linespacing CGFloat in this paragraph
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 8

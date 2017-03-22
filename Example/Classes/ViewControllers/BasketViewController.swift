@@ -160,9 +160,10 @@ class BasketViewController: UITableViewController {
                 cell.textLabel?.text = product.desc
                 cell.detailTextLabel?.text = product.subdesc
                 cell.ProductImageView.image = product.normalImage
-                
-                let price: Money = Money(product.price!)
+
+                let price = Money(minorUnits: product.price!)
                 cell.priceLabel.text = "\(price)"
+
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
                 cell.backgroundColor = UIColor.clear

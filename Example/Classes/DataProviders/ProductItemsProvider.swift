@@ -19,7 +19,7 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "asiancucumbersalad")!,
                 "qty": 7 as AnyObject,
-                "price": 49 as AnyObject
+                "price": 4000 as Int as AnyObject
                 ]),
             Product(dictionary:[
                 "sku": "2345678" as AnyObject,
@@ -28,26 +28,26 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "bimbimbop")!,
                 "qty": 9 as AnyObject,
-                "price": 49 as AnyObject
+                "price": 4000 as Int as AnyObject
                 ]),
-//            Product(dictionary:[
-//                "sku": "1234567" as AnyObject,
-//                "desc": "Korean Barbeque" as AnyObject,
-//                "subdesc": "Chicken Flavor" as AnyObject,
-//                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
-//                "normalImage": UIImage(named: "koreanbbq")!,
-//                "qty": 7 as AnyObject,
-//                "price": 49 as AnyObject
-//                ]),
-//            Product(dictionary:[
-//                "sku": "2345679" as AnyObject,
-//                "desc": "Korean Grilled Chicken" as AnyObject,
-//                "subdesc": "On top of Rice" as AnyObject,
-//                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
-//                "normalImage": UIImage(named: "koreanchicken")!,
-//                "qty": 9 as AnyObject,
-//                "price": 49 as AnyObject
-//                ]),
+            Product(dictionary:[
+                "sku": "1234567" as AnyObject,
+                "desc": "Korean Barbeque" as AnyObject,
+                "subdesc": "Chicken Flavor" as AnyObject,
+                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
+                "normalImage": UIImage(named: "koreanbbq")!,
+                "qty": 7 as AnyObject,
+                "price": 4500 as Int as AnyObject
+                ]),
+            Product(dictionary:[
+                "sku": "2345679" as AnyObject,
+                "desc": "Korean Grilled Chicken" as AnyObject,
+                "subdesc": "On top of Rice" as AnyObject,
+                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
+                "normalImage": UIImage(named: "koreanchicken")!,
+                "qty": 9 as AnyObject,
+                "price": 4500 as Int as AnyObject
+                ]),
 //            Product(dictionary:[
 //                "sku": "1234560" as AnyObject,
 //                "desc": "Mongolian Beef" as AnyObject,
@@ -75,15 +75,15 @@ class ProductItemsProvider {
 //                "qty": 7 as AnyObject,
 //                "price": 100 as AnyObject
 //                ]),
-//            Product(dictionary:[
-//                "sku": "2345679" as AnyObject,
-//                "desc": "Shrimp Brocolli" as AnyObject,
-//                "subdesc": "Stir Fried" as AnyObject,
-//                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
-//                "normalImage": UIImage(named: "shrimpbrocolli")!,
-//                "qty": 9 as AnyObject,
-//                "price": 100 as AnyObject
-//                ]),
+            Product(dictionary:[
+                "sku": "2345679" as AnyObject,
+                "desc": "Shrimp Brocolli" as AnyObject,
+                "subdesc": "Stir Fried" as AnyObject,
+                "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
+                "normalImage": UIImage(named: "shrimpbrocolli")!,
+                "qty": 9 as AnyObject,
+                "price": 1000 as Int as AnyObject
+                ]),
             Product(dictionary:[
                 "sku": "1234560" as AnyObject,
                 "desc": "Vietnamese Spring Rolls" as AnyObject,
@@ -91,7 +91,7 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "springrolls")!,
                 "qty": 7 as AnyObject,
-                "price": 69 as AnyObject
+                "price": 6000 as Int as AnyObject
                 ]),
 //            Product(dictionary:[
 //                "sku": "2345678" as AnyObject,
@@ -118,7 +118,7 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "thaicurrysoup")!,
                 "qty": 9 as AnyObject,
-                "price": 69 as AnyObject
+                "price": 6000 as Int as AnyObject
                 ])
         ]
     }()

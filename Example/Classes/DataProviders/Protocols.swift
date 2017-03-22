@@ -12,6 +12,4 @@ protocol ChangeViewProtocol: NSObjectProtocol {
     func loadNewScreen(controller: UIViewController) -> Void
 }
 
-protocol BadgeViewProtocol: NSObjectProtocol {
-    func loadBadgeCounter(controller: UIViewController) -> Int
-}
+
