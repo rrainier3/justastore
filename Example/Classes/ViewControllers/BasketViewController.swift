@@ -10,7 +10,7 @@ import UIKit
 import Money
 
 class BasketViewController: UITableViewController {
-
+    
 	let cellId = "cellId"
     let cellId2 = "cellId2"
     
@@ -132,7 +132,9 @@ class BasketViewController: UITableViewController {
         
         if numberOfRows == 0 && section == 0 { 	// show basket is empty!
         	numberOfRows = 0
+            
             basket = [Product]()
+
         }
         
         return numberOfRows

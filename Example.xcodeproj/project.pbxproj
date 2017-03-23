@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F1B59C61E65F8C8002C90E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B59C51E65F8C8002C90E7 /* Extensions.swift */; };
-		4F21BE1B1E840408000DC93C /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21BE1A1E840408000DC93C /* Basket.swift */; };
+		4F21BE1D1E8448F8000DC93C /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21BE1C1E8448F8000DC93C /* Basket.swift */; };
+		4F21BE1F1E845C4B000DC93C /* BasketTemplateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21BE1E1E845C4B000DC93C /* BasketTemplateClass.swift */; };
 		4F4515711E69AEA300CE8751 /* TTSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */; };
 		4F4515731E69E6FB00CE8751 /* BlankViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */; };
 		4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */; };
@@ -42,7 +43,8 @@
 
 /* Begin PBXFileReference section */
 		4F1B59C51E65F8C8002C90E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4F21BE1A1E840408000DC93C /* Basket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		4F21BE1C1E8448F8000DC93C /* Basket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		4F21BE1E1E845C4B000DC93C /* BasketTemplateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTemplateClass.swift; sourceTree = "<group>"; };
 		4F4515701E69AEA300CE8751 /* TTSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTSegmentedControl.swift; sourceTree = "<group>"; };
 		4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlankViewController+Handlers.swift"; sourceTree = "<group>"; };
 		4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlankViewController.swift; path = ../DataProviders/BlankViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +172,8 @@
 			children = (
 				C52989381D463FFB0058C829 /* TabItem.swift */,
 				4FA1997E1E708D380035B7D2 /* Product.swift */,
-				4F21BE1A1E840408000DC93C /* Basket.swift */,
+				4F21BE1C1E8448F8000DC93C /* Basket.swift */,
+				4F21BE1E1E845C4B000DC93C /* BasketTemplateClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,7 +365,8 @@
 				4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */,
 				C529894F1D463FFB0058C829 /* ExampleTableViewCell.swift in Sources */,
 				C52989491D463FFB0058C829 /* TabSwitcherItemsProvider.swift in Sources */,
-				4F21BE1B1E840408000DC93C /* Basket.swift in Sources */,
+				4F21BE1D1E8448F8000DC93C /* Basket.swift in Sources */,
+				4F21BE1F1E845C4B000DC93C /* BasketTemplateClass.swift in Sources */,
 				4FA199831E7192E10035B7D2 /* BasketTableViewCell.swift in Sources */,
 				C52989211D463F0C0058C829 /* AppDelegate.swift in Sources */,
 				4FA1997F1E708D380035B7D2 /* Product.swift in Sources */,

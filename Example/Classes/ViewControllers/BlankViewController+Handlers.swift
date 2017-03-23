@@ -102,13 +102,15 @@ extension BlankViewController {
         giBadgeView.increment()
         
         print(giBadgeView.badgeValue)
+
         
-        // Approach #2 check the basket first before appending
+        // approach #2 check the basket first before appending
+
         if !checkIfDuplicate(flyingProduct.desc!, basket: basket) {
             basket.append(flyingProduct)
         }
 
-		// Approach #1 filter the basket after appending
+		// approach #1 filter the basket after appending
         //basket.append(flyingProduct)
         //basket = checkBasketForDuplicates(basket)
 
@@ -126,7 +128,7 @@ extension BlankViewController {
         let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
     }
-    
+
     // check basket for duplicates via
     func checkBasketForDuplicates(_ basket: [Product]) -> [Product] {
         
@@ -150,7 +152,7 @@ extension BlankViewController {
         }
         return checkpoint
     }
-    
+
     func setupNavigationButtons() {
         
         self.title = "StoreItem"
@@ -180,7 +182,6 @@ extension BlankViewController {
         // setup the badge on the basket with counter!
         giBadgeView.badgeValue = basket.count
         rightButton.addSubview(giBadgeView)
-        
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
