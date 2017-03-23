@@ -103,11 +103,14 @@ extension BlankViewController {
         
         print(giBadgeView.badgeValue)
         
-        // Note: badgeValue initializes back to zero upon dismissing of viewController...so we must define a global var to hold the basket's badgeValue + items-added
-        
-        basket.append(flyingProduct)
-        
-        basket = checkBasketForDuplicates(basket) 
+        // Approach #2 check the basket first before appending
+        if !checkIfDuplicate(flyingProduct.desc!, basket: basket) {
+            basket.append(flyingProduct)
+        }
+
+		// Approach #1 filter the basket after appending
+        //basket.append(flyingProduct)
+        //basket = checkBasketForDuplicates(basket)
 
     }
     
@@ -124,7 +127,7 @@ extension BlankViewController {
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
     }
     
-    // check basket for duplicates
+    // check basket for duplicates via
     func checkBasketForDuplicates(_ basket: [Product]) -> [Product] {
         
         var result:[Product] = []
@@ -135,6 +138,17 @@ extension BlankViewController {
         }
         
         return result
+    }
+    // check basket for duplicates via checkIfDuplicate()!
+    func checkIfDuplicate(_ desc: String, basket: [Product]) -> Bool {
+        
+        var checkpoint: Bool = false
+        basket.forEach { (b) in
+            if desc == b.desc {
+                checkpoint = true
+            }
+        }
+        return checkpoint
     }
     
     func setupNavigationButtons() {

@@ -22,7 +22,9 @@ class BlankViewController: UIViewController {
         
         setupViews()
     }
-    
+
+    // Note: badgeValue initializes back to zero upon dismissing of viewController...
+    // so we must define a global var to hold the basket's badgeValue + items-added
     override func viewWillAppear(_ animated: Bool) {
         giBadgeView.badgeValue = basket.count			// reEntrant before viewDidLoad
     }
