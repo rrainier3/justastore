@@ -128,7 +128,6 @@ extension BlankViewController {
         let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
     }
-
     // check basket for duplicates via
     func checkBasketForDuplicates(_ basket: [Product]) -> [Product] {
         
