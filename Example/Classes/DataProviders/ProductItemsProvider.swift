@@ -19,7 +19,7 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "asiancucumbersalad")!,
                 "qty": 7 as AnyObject,
-                "price": 4000 as Int as AnyObject
+                "price": 3995 as Int as AnyObject
                 ]),
             Product(dictionary:[
                 "sku": "2345678" as AnyObject,
@@ -28,7 +28,7 @@ class ProductItemsProvider {
                 "timestamp": NSDate().timeIntervalSince1970 as AnyObject,
                 "normalImage": UIImage(named: "bimbimbop")!,
                 "qty": 9 as AnyObject,
-                "price": 4000 as Int as AnyObject
+                "price": 3995 as Int as AnyObject
                 ]),
             Product(dictionary:[
                 "sku": "1234567" as AnyObject,

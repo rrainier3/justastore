@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Money
 
 class TotalTableViewCell: UITableViewCell {
+    
+    var totalFormatted: String? = nil
     
     var product: Product? {
         didSet {
@@ -64,7 +67,6 @@ class TotalTableViewCell: UITableViewCell {
     
     let totalLabel: UILabel = {
         let label = UILabel()
-        label.text = "$99.95"
         label.font = UIFont.navigationTitleFont()
         label.textColor = refTintColor
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +91,7 @@ class TotalTableViewCell: UITableViewCell {
         containerView.addSubview(totalLabel)
         addSubview(separatorLineView)
         
+ 		totalLabel.text = self.totalFormatted
         
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true

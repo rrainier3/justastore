@@ -9,8 +9,6 @@
 import UIKit
 import Money
 
-var basket: Array = [Product]()
-
 class BasketViewController: UITableViewController {
 
 	let cellId = "cellId"

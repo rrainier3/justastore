@@ -1,5 +1,5 @@
 //
-//  Basket.swift
+//  Product.swift
 //  Example
 //
 //  Created by RayRainier on 3/8/17.

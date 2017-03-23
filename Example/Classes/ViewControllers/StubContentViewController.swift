@@ -29,7 +29,7 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         
         let filterProducts = ProductItemsProvider.items
         
-        let products69 = filterProducts.filter({ $0.price == 4000 })
+        let products69 = filterProducts.filter({ $0.price == 3995 })
         let products49 = filterProducts.filter({ $0.price == 6000 })
         let products100 = filterProducts.filter({ $0.price == 1000 })
         let products45 = filterProducts.filter({ $0.price == 4500 })
