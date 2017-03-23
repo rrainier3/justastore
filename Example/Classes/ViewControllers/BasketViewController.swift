@@ -183,7 +183,7 @@ class BasketViewController: UITableViewController {
                 cell.product = nil
 				
                 total = runTotalForBasket(basket)
-                let moneyTotal:Money = Money(total!)
+                let moneyTotal:Money = Money(minorUnits: total!)
                 cell.totalFormatted = "\(moneyTotal)"
                 
             default:
