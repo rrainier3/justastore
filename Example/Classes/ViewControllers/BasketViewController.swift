@@ -39,7 +39,7 @@ class BasketViewController: UITableViewController {
         self.tableView.dataSource = self
         
         // Remove separator for empty cells
-//        self.tableView.tableFooterView = UIView(frame: .zero)
+        //self.tableView.tableFooterView = UIView(frame: .zero)
         
         self.setupTotalTableFooterView()
         
@@ -55,6 +55,11 @@ class BasketViewController: UITableViewController {
     
     func setupTotalTableFooterView() {
         
+        let tTotal:Int = runTotalForBasket(basket)
+        total = Money(minorUnits: tTotal)
+        
+        totalLabel.text = "\(total!)"
+
     	let height = 100 - 8
         let width = 327
         
@@ -62,7 +67,8 @@ class BasketViewController: UITableViewController {
         customView.backgroundColor = UIColor.clear
         
         let boxer = UIView(frame: CGRect(x: 28, y: 4, width: width, height: height))
-        boxer.backgroundColor = UIColor(r: 230, g: 250, b: 230)
+        boxer.backgroundColor = UIColor(r: 250, g: 250, b: 250)
+        
         customView.addSubview(boxer)
         customView.addSubview(titleLabel)
         customView.addSubview(totalLabel)
@@ -73,18 +79,7 @@ class BasketViewController: UITableViewController {
         
         self.tableView.tableFooterView = customView
         
-//        //totalLabel.text = totalFormatted
-        
     }
-    
-    let containerView: UIView = {
-        let container = UIView()
-        //container.backgroundColor = UIColor(r: 250, g: 250, b: 250)
-        container.backgroundColor = .green
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.layer.masksToBounds = true
-        return container
-    }()
     
     let totalLabel: UILabel = {
         let label = UILabel()
@@ -117,9 +112,7 @@ class BasketViewController: UITableViewController {
     // prepare for swipe step-2
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     
-    	var canDelete: Bool = true
-        
-        if indexPath.section == 1 { canDelete = false }
+    	let canDelete: Bool = true
         
         return canDelete
 
@@ -131,11 +124,12 @@ class BasketViewController: UITableViewController {
         if editingStyle == .delete {
             
             basket.remove(at: indexPath.row)
-            let tTotal:Int = runTotalForBasket(basket)
-			total = Money(minorUnits: tTotal)
 
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // Lets run the total again!
+            setupTotalTableFooterView()
             
             // basket is now empty go back to previous
             guard basket.count != 0 else {
@@ -205,18 +199,7 @@ class BasketViewController: UITableViewController {
         let numberOfRows: Int = basket.count
         //var numberOfRows: Int = ProductItemsProvider.items.count
         
-//        if section == 1 {
-//        		numberOfRows = 1
-//        }
-
-//        if numberOfRows == 0 && section == 0 { 	// show basket is empty!
-//            numberOfRows = 0
-//            
-//            basket = [Product]()
-//            
-//        }
-        
-        if numberOfRows == 0  { 	// show basket is empty!
+        if numberOfRows == 0  { 	// basket is empty!
 
             basket = [Product]()
         }
@@ -237,52 +220,17 @@ class BasketViewController: UITableViewController {
             
             // Set product to trigger didSet() in BasketTableViewCell instance
             cell.product = product
-            
-//            switch(indexPath.section) {
-//            case 0:
-                cell.backgroundColor = UIColor.clear
-                cell.textLabel?.text = product.desc
-                cell.detailTextLabel?.text = product.subdesc
-                cell.ProductImageView.image = product.normalImage
+        
+            cell.backgroundColor = UIColor.clear
+            cell.textLabel?.text = product.desc
+            cell.detailTextLabel?.text = product.subdesc
+            cell.ProductImageView.image = product.normalImage
 
-                let price = Money(minorUnits: product.price!)
-                cell.priceLabel.text = "\(price)"
-
-//            case 1:
-//                let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
-//                cell.backgroundColor = UIColor.clear
-//                cell.product = nil
-//				
-//                cell.totalFormatted = "\(total!)"
-//
-//            default:
-//                fatalError("Unexpected section \(indexPath.section)")
-//                
-//            }
+            let price = Money(minorUnits: product.price!)
+            cell.priceLabel.text = "\(price)"
 
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        // Here, we use NSFetchedResultsController
-//        // And we simply use the section name as title
-////        let currSection = fetchedResultsController.sections?[section]
-////        let title = currSection!.name
-//        
-//        // Dequeue with the reuse identifier
-////        let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("TableSectionHeader")
-////        let header = cell as! TableSectionHeader
-////        header.titleLabel.text = title
-////        let cell = tableView.dequeueReusableCell(withIdentifier: cellId2, for: indexPath) as! TotalTableViewCell
-//
-//        let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: cellId2)
-//        cell?.backgroundColor = UIColor.clear
-//        
-////        cell.product = nil        
-////        cell.totalFormatted = "\(total!)"
-//        
-//        return cell
-//    }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
