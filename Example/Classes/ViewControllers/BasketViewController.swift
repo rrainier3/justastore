@@ -33,7 +33,7 @@ class BasketViewController: UITableViewController {
         
         // Register [UITableViewCell]'s here
         self.tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)        
-        self.tableView.register(TotalTableViewCell.self, forCellReuseIdentifier: cellId2)
+//        self.tableView.register(TotalTableViewCell.self, forCellReuseIdentifier: cellId2)
         
         // Setup and configure dataSource!
         self.tableView.dataSource = self
@@ -56,20 +56,20 @@ class BasketViewController: UITableViewController {
     func setupTotalTableFooterView() {
         
     	let height = 100 - 8
+        let width = 327
         
         let customView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-        customView.backgroundColor = UIColor.red
+        customView.backgroundColor = UIColor.clear
         
-        let boxer = UIView(frame: CGRect(x: 28, y: 4, width: 320, height: height))
-        boxer.backgroundColor = UIColor.white
-        
+        let boxer = UIView(frame: CGRect(x: 28, y: 4, width: width, height: height))
+        boxer.backgroundColor = UIColor(r: 230, g: 250, b: 230)
         customView.addSubview(boxer)
         customView.addSubview(titleLabel)
         customView.addSubview(totalLabel)
 
         _ = titleLabel.anchor(customView.topAnchor, left: customView.leftAnchor, bottom: nil, right: nil, topConstant: 14, leftConstant: 120, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 18)
         
-        _ = totalLabel.anchor(customView.topAnchor, left: nil, bottom: nil, right: customView.rightAnchor, topConstant: 14, leftConstant: 0, bottomConstant: 0, rightConstant: 60, widthConstant: 0, heightConstant: 18)
+        _ = totalLabel.anchor(customView.topAnchor, left: nil, bottom: nil, right: customView.rightAnchor, topConstant: 14, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 18)
         
         self.tableView.tableFooterView = customView
         
