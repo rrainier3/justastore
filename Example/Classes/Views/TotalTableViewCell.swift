@@ -43,7 +43,8 @@ class TotalTableViewCell: UITableViewCell {
     
     let containerView: UIView = {
         let container = UIView()
-        container.backgroundColor = UIColor(r: 250, g: 250, b: 250)
+        //container.backgroundColor = UIColor(r: 250, g: 250, b: 250)
+        container.backgroundColor = .white
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.masksToBounds = true
         return container
