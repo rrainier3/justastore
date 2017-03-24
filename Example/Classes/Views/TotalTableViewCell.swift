@@ -11,12 +11,12 @@ import Money
 
 class TotalTableViewCell: UITableViewCell {
     
-    var totalFormatted: String? = nil
+    var totalFormatted: String?
     
     var product: Product? {
         didSet {
             
-            //setupNameAndProductImage()
+            totalLabel.text = totalFormatted
             
         }
     }
@@ -36,6 +36,8 @@ class TotalTableViewCell: UITableViewCell {
         // In the box
         let someFrame = CGRect(x: 28, y: 4, width: width - 48, height: height - 8)
         containerView.frame = someFrame
+
+ 		totalLabel.text = totalFormatted
         
     }
     
@@ -67,6 +69,7 @@ class TotalTableViewCell: UITableViewCell {
     
     let totalLabel: UILabel = {
         let label = UILabel()
+        label.text = "$10.99"
         label.font = UIFont.navigationTitleFont()
         label.textColor = refTintColor
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -90,8 +93,6 @@ class TotalTableViewCell: UITableViewCell {
 		containerView.addSubview(titleLabel)
         containerView.addSubview(totalLabel)
         addSubview(separatorLineView)
-        
- 		totalLabel.text = self.totalFormatted
         
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true

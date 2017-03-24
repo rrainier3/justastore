@@ -84,7 +84,6 @@ class BasketTableViewCell: UITableViewCell {
 
         addSubview(priceLabel)
         
-        
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
         ProductImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 28).isActive = true
@@ -94,8 +93,6 @@ class BasketTableViewCell: UITableViewCell {
         _ = priceLabel.anchor(self.bottomAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: -30, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 18)
         
     }
-    
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

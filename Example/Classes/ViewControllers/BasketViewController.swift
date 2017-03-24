@@ -16,7 +16,15 @@ class BasketViewController: UITableViewController {
     
     var blankViewController = BlankViewController()
     
-    var total: Int?
+    var total: Money?
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
+        let thisTotal:Int = runTotalForBasket(basket)
+        total = Money(minorUnits: thisTotal)
+        print(total!)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +76,8 @@ class BasketViewController: UITableViewController {
         if editingStyle == .delete {
             
             basket.remove(at: indexPath.row)
-			total = runTotalForBasket(basket)
+            let tTotal:Int = runTotalForBasket(basket)
+			total = Money(minorUnits: tTotal)
 
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -78,6 +87,8 @@ class BasketViewController: UITableViewController {
                 dismiss(animated: true, completion: nil)
                 return
             }
+
+			tableView.reloadData()
             
             // Attemp to ReEnter basket to clear totalSection
             self.blankViewController.handleBasketButton()
@@ -182,9 +193,7 @@ class BasketViewController: UITableViewController {
                 cell.backgroundColor = UIColor.clear
                 cell.product = nil
 				
-                total = runTotalForBasket(basket)
-                let moneyTotal:Money = Money(minorUnits: total!)
-                cell.totalFormatted = "\(moneyTotal)"
+                cell.totalFormatted = "\(total!)"
                 
             default:
                 fatalError("Unexpected section \(indexPath.section)")
