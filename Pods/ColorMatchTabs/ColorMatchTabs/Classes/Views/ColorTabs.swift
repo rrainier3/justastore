@@ -235,12 +235,22 @@ private extension ColorTabs {
         
         // offset for first item
         let point = convert(toIcon.frame.origin, to: self)
-        let offsetForFirstItem: CGFloat = toIndex == 0 ? -HighlighterViewOffScreenOffset : 0
-        highlighterView.frame.origin.x = point.x + offsetForFirstItem
+//        let offsetForFirstItem: CGFloat = toIndex == 0 ? -HighlighterViewOffScreenOffset : 0
+
+        let offsetForFirstItem: CGFloat = CGFloat(0)
+        
+        highlighterView.frame.origin.x = point.x + offsetForFirstItem + 10
+        
         
         // offset for last item
-        let offsetForLastItem: CGFloat = toIndex == countItems - 1 ? HighlighterViewOffScreenOffset : 0
-        highlighterView.frame.size.width = toLabel.bounds.width + (toLabel.frame.origin.x - toIcon.frame.origin.x) + 10 - offsetForFirstItem + offsetForLastItem
+//        let offsetForLastItem: CGFloat = toIndex == countItems - 1 ? HighlighterViewOffScreenOffset : 0
+
+        let offsetForLastItem: CGFloat = CGFloat(0)
+        
+//        highlighterView.frame.size.width = toLabel.bounds.width + (toLabel.frame.origin.x - toIcon.frame.origin.x) + 10 - offsetForFirstItem + offsetForLastItem
+        
+        highlighterView.frame.size.width = toLabel.bounds.width - 20
+
         
         highlighterView.backgroundColor = dataSource!.tabSwitcher(self, tintColorAt: toIndex)
     }
