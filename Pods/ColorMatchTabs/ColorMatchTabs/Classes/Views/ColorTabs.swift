@@ -145,7 +145,7 @@ open class ColorTabs: UIControl {
             
             let label = createLabel(forIndex: index, withDataSource: dataSource)
             labels.append(label)
-            stackView.addArrangedSubview(label)
+//            stackView.addArrangedSubview(label)
         }
     }
     
@@ -249,7 +249,7 @@ private extension ColorTabs {
         
 //        highlighterView.frame.size.width = toLabel.bounds.width + (toLabel.frame.origin.x - toIcon.frame.origin.x) + 10 - offsetForFirstItem + offsetForLastItem
         
-        highlighterView.frame.size.width = toLabel.bounds.width - 20
+        highlighterView.frame.size.width = toLabel.bounds.width + 75
 
         
         highlighterView.backgroundColor = dataSource!.tabSwitcher(self, tintColorAt: toIndex)
