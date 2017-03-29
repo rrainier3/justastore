@@ -17,7 +17,9 @@ class ExampleViewContoller: ColorMatchTabsViewController {
         super.viewDidLoad()
         
         titleLabel.font = UIFont.navigationTitleFont()!
-                
+        
+        //titleLabel.font = UIFont.fontAvenirMedium(ofSize: 24)
+        
         // to hide bottom button comment the following line
 //        popoverViewController = ExamplePopoverViewController()
 //        popoverViewController?.delegate = self

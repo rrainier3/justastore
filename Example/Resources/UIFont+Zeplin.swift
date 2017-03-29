@@ -14,7 +14,7 @@ extension UIFont {
 	}
     
     class func navigationTitleFont() -> UIFont? {
-        return UIFont(name: "GothamPro", size: 20.0)
+        return UIFont(name: "GothamPro", size: 24.0)
     }
 
 	class func cellTitleFont() -> UIFont? {
@@ -39,5 +39,13 @@ extension UIFont {
     
     class func regularTitleFont12() -> UIFont? {
         return UIFont(name: "GothamPro", size: 12.0)
+    }
+    
+    class func fontAvenirMedium(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Avenir-Book", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    class func fontAvenirLight(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Avenir-Light", size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }
