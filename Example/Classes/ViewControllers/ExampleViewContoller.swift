@@ -9,7 +9,7 @@
 import UIKit
 import ColorMatchTabs
 
-var refTintColor: UIColor = UIColor()
+var refTintColor: UIColor = UIColor.clear
 
 class ExampleViewContoller: ColorMatchTabsViewController {
     

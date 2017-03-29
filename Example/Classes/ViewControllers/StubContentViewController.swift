@@ -1,5 +1,5 @@
 //
-//  ExampleViewController.swift
+//  StubContentViewController.swift
 //  ColorMatchTabs
 //
 //  Created by RayRainier on 2/24/17.

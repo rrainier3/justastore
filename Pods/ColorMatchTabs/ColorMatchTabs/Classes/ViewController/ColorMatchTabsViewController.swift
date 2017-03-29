@@ -158,6 +158,7 @@ private extension ColorMatchTabsViewController {
         
         titleLabel.textColor = color
         _view.scrollMenu.backgroundColor = color.withAlphaComponent(0.2)
+
     }
     
     func updateScrollEnabled() {
