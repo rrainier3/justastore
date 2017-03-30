@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "GrillFilled.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "GrillFilled.png",
       "scale" : "2x"
     },
     {

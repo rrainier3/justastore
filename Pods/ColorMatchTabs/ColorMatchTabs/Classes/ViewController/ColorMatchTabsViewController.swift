@@ -170,7 +170,8 @@ private extension ColorMatchTabsViewController {
 private extension ColorMatchTabsViewController {
     
     func setDefaultPositions() {
-        _view.tabs.setHighlighterHidden(false)
+//        _view.tabs.setHighlighterHidden(false)
+       _view.tabs.setHighlighterHidden(true)
         
         for (index, iconImageView) in icons.enumerated() {
             UIView.animate(

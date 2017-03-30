@@ -3,8 +3,9 @@
 //  Example
 //
 //  Created by RayRainier on 3/18/17.
-//  Copyright © 2017 Yalantis. All rights reserved.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
+//		Note: Deprecated refer to UITableView.footerView implementation 03302017 rr
 
 import UIKit
 import Money

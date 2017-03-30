@@ -154,7 +154,7 @@ extension BlankViewController {
 
     func setupNavigationButtons() {
         
-        self.title = "StoreItem"
+        self.title = flyingProduct.category
         
         let uiFont = UIFont.navigationTitleFont()!
         let uiColor = refTintColor

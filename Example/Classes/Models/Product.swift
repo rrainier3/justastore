@@ -13,6 +13,7 @@ class Product: NSObject {
     var sku: String?
     var desc: String?
     var subdesc: String?
+    var category: String?
     var timestamp: NSNumber?
     var normalImage: UIImage?
     var qty: Int?
@@ -27,6 +28,7 @@ class Product: NSObject {
         sku = dictionary["sku"] as? String
         desc = dictionary["desc"] as? String
         subdesc = dictionary["subdesc"] as? String
+        category = dictionary["category"] as? String
         timestamp = dictionary["timestamp"] as? NSNumber
         normalImage = dictionary["normalImage"] as? UIImage
 		qty = dictionary["qty"] as? Int

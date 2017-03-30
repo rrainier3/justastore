@@ -14,28 +14,28 @@ class TabItemsProvider {
     static let items = {
         return [
             TabItem(
-                title: "",
+                title: "Grilled",
                 tintColor: UIColor.gray.withAlphaComponent(0.70),
                 //tintColor: UIColor(red: 0.51, green: 0.72, blue: 0.25, alpha: 1.00),
                 normalImage: UIImage(named: "Grill")!,
                 highlightedImage: UIImage(named: "GrillFilled")!
             ),
             TabItem(
-                title: "",
+                title: "Veggies",
                 tintColor: UIColor.gray.withAlphaComponent(0.70),
                 //                tintColor: UIColor(red: 0.15, green: 0.67, blue: 0.99, alpha: 1.00),
                 normalImage: UIImage(named: "NaturalFood")!,
                 highlightedImage: UIImage(named: "NaturalFoodFilled")!
             ),
             TabItem(
-                title: "",
+                title: "Noodles",
                 tintColor: UIColor.gray.withAlphaComponent(0.70),
                 //                tintColor: UIColor(red: 1.00, green: 0.61, blue: 0.16, alpha: 1.00),
                 normalImage: UIImage(named: "Noodles")!,
                 highlightedImage: UIImage(named: "NoodlesFilled")!
             ),
             TabItem(
-                title: "",
+                title: "HotFood",
                 tintColor: UIColor.gray.withAlphaComponent(0.70),
                 //                tintColor: UIColor(red: 0.96, green: 0.61, blue: 0.58, alpha: 1.00),
                 normalImage: UIImage(named: "FryingPan")!,
