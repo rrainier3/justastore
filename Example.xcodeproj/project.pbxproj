@@ -492,7 +492,7 @@
 				DEVELOPMENT_TEAM = Y4YLH4W88M;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yalantis.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.radiusense.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = GIBadgeViewHeader.h;
 				SWIFT_VERSION = 3.0;
@@ -509,7 +509,7 @@
 				DEVELOPMENT_TEAM = Y4YLH4W88M;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yalantis.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.radiusense.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = GIBadgeViewHeader.h;
 				SWIFT_VERSION = 3.0;
