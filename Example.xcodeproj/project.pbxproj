@@ -16,6 +16,7 @@
 		4FA1997F1E708D380035B7D2 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1997E1E708D380035B7D2 /* Product.swift */; };
 		4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199801E70C22C0035B7D2 /* BasketViewController.swift */; };
 		4FA199831E7192E10035B7D2 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */; };
+		4FAAA79D1E9E5CBA000F7F8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAAA79C1E9E5CBA000F7F8A /* LoginViewController.swift */; };
 		4FC8A2D91E7DFAC1002C6006 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8A2D81E7DFAC1002C6006 /* TotalTableViewCell.swift */; };
 		4FE3726B1E6BB0AF00C52871 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3726A1E6BB0AF00C52871 /* GIBadgeView.m */; };
 		4FE6AE401E75E8B50051D024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE6AE3F1E75E8B50051D024 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		4FA1997E1E708D380035B7D2 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4FA199801E70C22C0035B7D2 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		4FAAA79C1E9E5CBA000F7F8A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4FC8A2D81E7DFAC1002C6006 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		4FE372651E6B43D500C52871 /* GIBadgeViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeViewHeader.h; sourceTree = "<group>"; };
 		4FE372691E6BB0AF00C52871 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				C529893A1D463FFB0058C829 /* ExamplePopoverViewController.swift */,
+				4FAAA79C1E9E5CBA000F7F8A /* LoginViewController.swift */,
 				C529893B1D463FFB0058C829 /* ExampleViewContoller.swift */,
 				C529893D1D463FFB0058C829 /* StubContentViewController.swift */,
 				4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */,
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAAA79D1E9E5CBA000F7F8A /* LoginViewController.swift in Sources */,
 				C529894C1D463FFB0058C829 /* ExampleViewContoller.swift in Sources */,
 				4F6D2CBB1E7229DF00FF3327 /* ProductItemsProvider.swift in Sources */,
 				C529894A1D463FFB0058C829 /* TabItem.swift in Sources */,
