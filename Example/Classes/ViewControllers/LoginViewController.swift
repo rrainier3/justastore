@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by RayRainier on 4/12/17.
-//  Copyright © 2017 Yalantis. All rights reserved.
+//  Copyright © 2017 RadiuSense. All rights reserved.
 //
 
 import UIKit
