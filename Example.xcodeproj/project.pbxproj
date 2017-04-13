@@ -13,6 +13,7 @@
 		4F4515731E69E6FB00CE8751 /* BlankViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */; };
 		4F5F54D21E60C8EB0037E896 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */; };
 		4F6D2CBB1E7229DF00FF3327 /* ProductItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6D2CBA1E7229DF00FF3327 /* ProductItemsProvider.swift */; };
+		4F92D09E1EA03F71005FFA5D /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4F92D09D1EA03F71005FFA5D /* README.rtf */; };
 		4FA1997F1E708D380035B7D2 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1997E1E708D380035B7D2 /* Product.swift */; };
 		4FA199811E70C22C0035B7D2 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199801E70C22C0035B7D2 /* BasketViewController.swift */; };
 		4FA199831E7192E10035B7D2 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 		4F4515721E69E6FB00CE8751 /* BlankViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlankViewController+Handlers.swift"; sourceTree = "<group>"; };
 		4F5F54D11E60C8EB0037E896 /* BlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlankViewController.swift; path = ../DataProviders/BlankViewController.swift; sourceTree = "<group>"; };
 		4F6D2CBA1E7229DF00FF3327 /* ProductItemsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductItemsProvider.swift; sourceTree = "<group>"; };
+		4F92D09D1EA03F71005FFA5D /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 		4FA1997E1E708D380035B7D2 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4FA199801E70C22C0035B7D2 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		4FA199821E7192E00035B7D2 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				C52989241D463F0C0058C829 /* Main.storyboard */,
 				C52989291D463F0C0058C829 /* LaunchScreen.storyboard */,
 				C529892C1D463F0C0058C829 /* Info.plist */,
+				4F92D09D1EA03F71005FFA5D /* README.rtf */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				C52989531D463FFB0058C829 /* GothamProMedium.ttf in Resources */,
 				C529892B1D463F0C0058C829 /* LaunchScreen.storyboard in Resources */,
 				C52989521D463FFB0058C829 /* GothamProBold.ttf in Resources */,
+				4F92D09E1EA03F71005FFA5D /* README.rtf in Resources */,
 				4FE6AE401E75E8B50051D024 /* Assets.xcassets in Resources */,
 				C52989501D463FFB0058C829 /* ExampleTableViewCell.xib in Resources */,
 				C52989261D463F0C0058C829 /* Main.storyboard in Resources */,

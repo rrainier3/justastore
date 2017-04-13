@@ -12,8 +12,13 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        let imageView = UIImageView(frame: self.view.bounds)
+        imageView.image = UIImage(named: "karekare")
+        self.view.addSubview(imageView)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
