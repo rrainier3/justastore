@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
@@ -32,15 +33,17 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+
+        self.navigationController?.navigationBar.isHidden = true
+
         let imageView = UIImageView(frame: self.view.bounds)
         imageView.image = UIImage(named: "blue_sprite")
         self.view.addSubview(imageView)
         
-        self.navigationController?.navigationBar.isHidden = true
-        
-        self.view.addSubview(loginRegisterButton)
+		// EmailTextField
+        setupEmailTextField()
+
+		// LoginRegisterButton
         setupLoginRegisterButton()
     }
     
@@ -51,9 +54,57 @@ class LoginViewController: UIViewController {
     func setupLoginRegisterButton() {
     
     	let width = self.view.bounds.width - 60
-    
+
+        self.view.addSubview(loginRegisterButton)
     	_ = loginRegisterButton.anchor(self.view.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: -140, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 50)
 
+    }
+    
+    func setupEmailTextField() {
+        
+        let width = self.view.bounds.width - 60
+        
+        let emailTextField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
+        emailTextField.placeholder = "Email Address"
+        emailTextField.title = "Email Address"
+    	emailTextField.titleColor = .white
+        emailTextField.errorColor = UIColor.orange
+        emailTextField.delegate = self
+        
+        emailTextField.selectedTitle = "Email Address"
+        emailTextField.selectedTitleColor = .white
+        emailTextField.selectedLineColor = .white
+        emailTextField.font = UIFont.fontAvenirMedium(ofSize: 18)
+        
+        emailTextField.textColor = .white
+        
+        self.view.addSubview(emailTextField)
+        
+        _ = emailTextField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
+    }
+    
+    func setupPasswordField() {
+        
+        let width = self.view.bounds.width - 60
+        
+        let passwordField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
+        passwordField.placeholder = "Password"
+        passwordField.title = "Password"
+        passwordField.titleColor = .white
+        passwordField.errorColor = UIColor.orange
+        passwordField.delegate = self
+        
+        passwordField.selectedTitle = "Password"
+        passwordField.selectedTitleColor = .white
+        passwordField.selectedLineColor = .white
+        passwordField.font = UIFont.fontAvenirMedium(ofSize: 18)
+        
+        passwordField.textColor = .white
+        passwordField.isSecureTextEntry = true
+        
+        self.view.addSubview(passwordField)
+        
+        _ = passwordField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
     }
 
     override func didReceiveMemoryWarning() {

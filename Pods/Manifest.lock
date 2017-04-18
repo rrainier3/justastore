@@ -2,17 +2,20 @@ PODS:
   - ColorMatchTabs (2.0.1)
   - Money (2.0.1):
     - ValueCoding (~> 2)
+  - SkyFloatingLabelTextField (2.0.1)
   - ValueCoding (2.1.0)
 
 DEPENDENCIES:
   - ColorMatchTabs (~> 2.0)
   - Money
+  - SkyFloatingLabelTextField (~> 2.0.0)
 
 SPEC CHECKSUMS:
   ColorMatchTabs: f92f9ff526340c9816570ff2ee9abfc6d85d4a2b
   Money: 6faa689f86c455112971c900e8a31fa0b9c02365
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   ValueCoding: f18cd2f0c941c43e06669717ca25aeed02d702a9
 
-PODFILE CHECKSUM: 612c3efcfe6b13760baa7c17513f879163f3fc9b
+PODFILE CHECKSUM: 0ad0f200f24ece0813d8413502c593cc706271c1
 
 COCOAPODS: 1.1.1
