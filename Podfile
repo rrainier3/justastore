@@ -8,4 +8,6 @@ target 'Example' do
   # Pods for Example
   pod 'ColorMatchTabs', '~> 2.0'
   pod 'Money'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+  
 end
