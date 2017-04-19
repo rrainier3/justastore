@@ -40,8 +40,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         imageView.image = UIImage(named: "blue_sprite")
         self.view.addSubview(imageView)
         
-		// EmailTextField
+		// setup input text fields
         setupEmailTextField()
+        setupPasswordField()
 
 		// LoginRegisterButton
         setupLoginRegisterButton()
@@ -80,7 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(emailTextField)
         
-        _ = emailTextField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
+        _ = emailTextField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: -90, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
     }
     
     func setupPasswordField() {
@@ -104,7 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(passwordField)
         
-        _ = passwordField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
+        _ = passwordField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: -20, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,23 +115,90 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text {
+    
+//        if let text = textField.text {
             
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 
-                if(text.characters.count < 3 || !isValidEmailAddress(emailAddressString: text)) {
-                    
-                    // if(text.characters.count < 3 || !text.contains("@")) {
-                    
-                    floatingLabelTextField.errorMessage = "Invalid email"
+            	if floatingLabelTextField.isSecureTextEntry == true {
+                    floatingLabelTextField.errorMessage = validateSkyPasswordTextField(skyFloatingTextField: floatingLabelTextField)
+                } else {
+                    floatingLabelTextField.errorMessage = validateSkyFloatingTextField(skyFloatingTextField: floatingLabelTextField)
+                }
+
+/*
+				// Check passwordTextField
+				if(textField.isSecureTextEntry) && (text.characters.count < 8) || !isValidPassword(passwordString: text) {
+                    floatingLabelTextField.errorMessage = "Invalid password"
                 }
                 else {
                     // The error message will only disappear when we reset it to nil or empty string
                     floatingLabelTextField.errorMessage = ""
                 }
+                
+                // Check emailTextField
+                if(!textField.isSecureTextEntry) && (text.characters.count < 3 || !isValidEmailAddress(emailAddressString: text)) {
+                    
+                    	// if(text.characters.count < 3 || !text.contains("@")) {
+                    	floatingLabelTextField.errorMessage = "Invalid email"
+                	}
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    floatingLabelTextField.errorMessage = ""
+                }
+*/
             }
-        }
+//        }
         return true
+    }
+
+    func validateSkyFloatingTextField(skyFloatingTextField: SkyFloatingLabelTextField) -> String {
+        
+        let text = skyFloatingTextField.text
+        if ((text?.characters.count)! < 3 || !isValidEmailAddress(emailAddressString: text!)) {
+            skyFloatingTextField.errorMessage = "Email is invalid"
+        } else {
+            // The error message will only disappear when we reset it to nil or empty string
+            skyFloatingTextField.errorMessage = ""
+        }
+        
+        return skyFloatingTextField.errorMessage!
+    }
+    
+    func validateSkyPasswordTextField(skyFloatingTextField: SkyFloatingLabelTextField) -> String {
+        
+        let text = skyFloatingTextField.text
+        if ((text?.characters.count)! < 8) || !isValidPassword(passwordString: text!) {
+            skyFloatingTextField.errorMessage = "Password is invalid"
+        } else {
+            // The error message will only disappear when we reset it to nil or empty string
+            skyFloatingTextField.errorMessage = ""
+        }
+        
+        return skyFloatingTextField.errorMessage!
+    }
+    
+    
+    func isValidPassword(passwordString: String) -> Bool {
+    	var returnValue = true
+    	let passwordRegEx = "[A-Z0-9a-z.-_]"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: passwordRegEx)
+            let nsString = passwordString as NSString
+            let results = regex.matches(in: passwordString, range: NSRange(location: 0, length: nsString.length))
+            
+            if results.count == 0
+            {
+                returnValue = false
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        
+        return returnValue
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
