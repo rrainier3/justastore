@@ -71,7 +71,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = true
 
         let imageView = UIImageView(frame: self.view.bounds)
-        imageView.image = UIImage(named: "bimbimbop")
+        imageView.image = UIImage(named: "ocean")
         self.view.addSubview(imageView)
         
         setupEmailTextField()
@@ -156,7 +156,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func validateSkyPasswordTextField(skyFloatingTextField: SkyFloatingLabelTextField) -> String {
         
         let text = skyFloatingTextField.text
-        if ((text?.characters.count)! < 7) || !isValidPassword(passwordString: text!) {
+        if !isValidPassword(passwordString: text!) {
             skyFloatingTextField.errorMessage = "Password is invalid"
         } else {
             // The error message will only disappear when we reset it to nil or empty string
@@ -169,7 +169,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func isValidPassword(passwordString: String) -> Bool {
     	var returnValue = true
-    	let passwordRegEx = "[A-Z0-9a-z.-_]"
+        // must have 1 alpha and 1 number minimum of 8 char
+        let passwordRegEx = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         
         do {
             let regex = try NSRegularExpression(pattern: passwordRegEx)
