@@ -11,10 +11,44 @@ import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+	let emailTextField: SkyFloatingLabelTextField = {
+        let emailLogin = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
+        emailLogin.placeholder = "Email Address"
+        emailLogin.title = "Email Address"
+        emailLogin.titleColor = .white
+        emailLogin.errorColor = UIColor.orange
+
+        emailLogin.selectedTitle = "Email Address"
+        emailLogin.selectedTitleColor = .white
+        emailLogin.selectedLineColor = .white
+        emailLogin.font = UIFont.fontAvenirMedium(ofSize: 18)
+        
+        emailLogin.textColor = .white
+        
+        return emailLogin
+    }()
+    
+    let passwordField: SkyFloatingLabelTextField = {
+        let password = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
+        password.placeholder = "Password"
+        password.title = "Password"
+        password.titleColor = .white
+        password.errorColor = UIColor.orange
+        
+        password.selectedTitle = "Password"
+        password.selectedTitleColor = .white
+        password.selectedLineColor = .white
+        password.font = UIFont.fontAvenirMedium(ofSize: 18)
+        
+        password.textColor = .white
+        password.isSecureTextEntry = true
+        
+        return password
+    }()
+
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        //button.backgroundColor = UIColor.clear
         
         button.setTitle("L O G I N", for: .normal)
         button.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
@@ -37,18 +71,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = true
 
         let imageView = UIImageView(frame: self.view.bounds)
-        imageView.image = UIImage(named: "blue_sprite")
+        imageView.image = UIImage(named: "bimbimbop")
         self.view.addSubview(imageView)
         
-		// setup input text fields
         setupEmailTextField()
         setupPasswordField()
-
-		// LoginRegisterButton
         setupLoginRegisterButton()
     }
     
     func handleLoginButton() {
+		
+        if emailTextField.errorMessage == nil || passwordField.errorMessage == nil {
+            print("Found NILs in the field!")
+        } else {
+            print(emailTextField.text!)
+            print(passwordField.text!)
+        }
+        
         print("PRESS THE BUTTON")
     }
 
@@ -58,50 +97,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.view.addSubview(loginRegisterButton)
     	_ = loginRegisterButton.anchor(self.view.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: -140, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 50)
-
     }
     
     func setupEmailTextField() {
+    
+    	self.emailTextField.delegate = self
         
         let width = self.view.bounds.width - 60
         
-        let emailTextField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
-        emailTextField.placeholder = "Email Address"
-        emailTextField.title = "Email Address"
-    	emailTextField.titleColor = .white
-        emailTextField.errorColor = UIColor.orange
-        emailTextField.delegate = self
-        
-        emailTextField.selectedTitle = "Email Address"
-        emailTextField.selectedTitleColor = .white
-        emailTextField.selectedLineColor = .white
-        emailTextField.font = UIFont.fontAvenirMedium(ofSize: 18)
-        
-        emailTextField.textColor = .white
-        
         self.view.addSubview(emailTextField)
-        
         _ = emailTextField.anchor(self.view.centerYAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: -90, leftConstant: 30, bottomConstant: 0, rightConstant: 0, widthConstant: width, heightConstant: 60)
     }
     
     func setupPasswordField() {
+    
+    	self.passwordField.delegate = self
         
         let width = self.view.bounds.width - 60
-        
-        let passwordField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
-        passwordField.placeholder = "Password"
-        passwordField.title = "Password"
-        passwordField.titleColor = .white
-        passwordField.errorColor = UIColor.orange
-        passwordField.delegate = self
-        
-        passwordField.selectedTitle = "Password"
-        passwordField.selectedTitleColor = .white
-        passwordField.selectedLineColor = .white
-        passwordField.font = UIFont.fontAvenirMedium(ofSize: 18)
-        
-        passwordField.textColor = .white
-        passwordField.isSecureTextEntry = true
         
         self.view.addSubview(passwordField)
         
@@ -115,8 +127,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    
-//        if let text = textField.text {
             
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 
@@ -126,29 +136,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     floatingLabelTextField.errorMessage = validateSkyFloatingTextField(skyFloatingTextField: floatingLabelTextField)
                 }
 
-/*
-				// Check passwordTextField
-				if(textField.isSecureTextEntry) && (text.characters.count < 8) || !isValidPassword(passwordString: text) {
-                    floatingLabelTextField.errorMessage = "Invalid password"
-                }
-                else {
-                    // The error message will only disappear when we reset it to nil or empty string
-                    floatingLabelTextField.errorMessage = ""
-                }
-                
-                // Check emailTextField
-                if(!textField.isSecureTextEntry) && (text.characters.count < 3 || !isValidEmailAddress(emailAddressString: text)) {
-                    
-                    	// if(text.characters.count < 3 || !text.contains("@")) {
-                    	floatingLabelTextField.errorMessage = "Invalid email"
-                	}
-                else {
-                    // The error message will only disappear when we reset it to nil or empty string
-                    floatingLabelTextField.errorMessage = ""
-                }
-*/
             }
-//        }
         return true
     }
 
@@ -168,7 +156,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func validateSkyPasswordTextField(skyFloatingTextField: SkyFloatingLabelTextField) -> String {
         
         let text = skyFloatingTextField.text
-        if ((text?.characters.count)! < 8) || !isValidPassword(passwordString: text!) {
+        if ((text?.characters.count)! < 7) || !isValidPassword(passwordString: text!) {
             skyFloatingTextField.errorMessage = "Password is invalid"
         } else {
             // The error message will only disappear when we reset it to nil or empty string
