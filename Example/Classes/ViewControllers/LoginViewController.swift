@@ -9,7 +9,11 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginJitterButton: UIButton, Jitterable {
+    
+}
+
+class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
 
 	let emailTextField: SkyFloatingLabelTextField = {
         let emailLogin = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
@@ -46,8 +50,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return password
     }()
 
-    let loginRegisterButton: UIButton = {
-        let button = UIButton(type: .system)
+    let loginRegisterButton: LoginJitterButton = {
+    
+    	let button = LoginJitterButton(type: .system)
+        //let button = UIButton(type: .system)
         button.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         
         button.setTitle("L O G I N", for: .normal)
@@ -80,15 +86,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func handleLoginButton() {
+    
+		guard let _ = emailTextField.errorMessage else
+        
+            {
+            /* Handle nil case */
+            
+            loginRegisterButton.jitter()
+            
+            return
+            }
 		
-        if emailTextField.errorMessage == nil || passwordField.errorMessage == nil {
-            print("Found NILs in the field!")
-        } else {
-            print(emailTextField.text!)
-            print(passwordField.text!)
+        guard let _ = passwordField.errorMessage else {
+            
+            loginRegisterButton.jitter()
+            
+            return
         }
         
-        print("PRESS THE BUTTON")
+        print(emailTextField.text!)
+        print(passwordField.text!)
+
     }
 
     func setupLoginRegisterButton() {
