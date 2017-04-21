@@ -12,6 +12,20 @@ import ColorMatchTabs
 var refTintColor: UIColor = UIColor.clear
 
 class ExampleViewContoller: ColorMatchTabsViewController {
+
+    override func viewWillAppear(_ animated: Bool) {
+    
+    	let loginViewController = LoginViewController()
+        guard (verifyLoginAccess) != nil else {
+        
+        	if verifyLoginAccess == true {
+                self.present(loginViewController, animated: true, completion: nil)
+            }
+            
+           return
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

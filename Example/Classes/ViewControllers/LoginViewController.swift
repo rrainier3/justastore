@@ -8,6 +8,9 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import ColorMatchTabs
+
+var verifyLoginAccess: Bool!
 
 class LoginJitterButton: UIButton, Jitterable {
     
@@ -106,7 +109,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
         
         print(emailTextField.text!)
         print(passwordField.text!)
-
+        
+        // grant access
+		verifyLoginAccess = true
+        self.dismiss(animated: true, completion: nil)
+    
     }
 
     func setupLoginRegisterButton() {

@@ -76,7 +76,7 @@ extension BlankViewController {
         _ = priceLabel.anchor(productLabel.topAnchor, left: nil, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         
         // insert our segmented-control here
-        segmentedControl.itemTitles = ["S","M","L"]
+        segmentedControl.itemTitles = ["Regular","Large","Tray"]
         segmentedControl.didSelectItemWith = { (index, title) -> () in
             print("Selected item \(index) for \(title)")
             self.changePriceLabel(index)
