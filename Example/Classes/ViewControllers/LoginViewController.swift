@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
         self.navigationController?.navigationBar.isHidden = true
 
         let imageView = UIImageView(frame: self.view.bounds)
-        imageView.image = UIImage(named: "ocean")
+        imageView.image = UIImage(named: "bluegreen")
         self.view.addSubview(imageView)
         
         setupEmailTextField()
