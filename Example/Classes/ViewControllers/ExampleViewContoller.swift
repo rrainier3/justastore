@@ -16,15 +16,14 @@ class ExampleViewContoller: ColorMatchTabsViewController {
     override func viewWillAppear(_ animated: Bool) {
     
     	let loginViewController = LoginViewController()
-        guard (verifyLoginAccess) != nil else {
         
-        	if verifyLoginAccess == true {
-                self.present(loginViewController, animated: true, completion: nil)
-            }
-            
-           return
+        guard let allowed = verifyLoginAccess else {
+        
+        	self.present(loginViewController, animated: true, completion: nil)
+           	return
         }
         
+        if allowed == false { return }
     }
     
     override func viewDidLoad() {
@@ -89,6 +88,7 @@ extension ExampleViewContoller: ColorMatchTabsViewControllerDataSource {
         refTintColor = TabItemsProvider.items[index].tintColor
         
         return TabItemsProvider.items[index].tintColor
+
     }
     
 }

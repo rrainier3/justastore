@@ -110,6 +110,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
         print(emailTextField.text!)
         print(passwordField.text!)
         
+        /*
+         insert Firebase Authentication here ...
+      */
+        
         // grant access
 		verifyLoginAccess = true
         self.dismiss(animated: true, completion: nil)

@@ -252,7 +252,8 @@ private extension ColorTabs {
         highlighterView.frame.size.width = toLabel.bounds.width + 75
 
         
-        highlighterView.backgroundColor = dataSource!.tabSwitcher(self, tintColorAt: toIndex)
+//        highlighterView.backgroundColor = dataSource!.tabSwitcher(self, tintColorAt: toIndex)
+		highlighterView.backgroundColor = .white
     }
     
 }
