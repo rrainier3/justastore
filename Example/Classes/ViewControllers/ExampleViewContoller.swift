@@ -66,12 +66,14 @@ extension ExampleViewContoller: ColorMatchTabsViewControllerDataSource {
     }
     
     func tabsViewController(_ controller: ColorMatchTabsViewController, hightlightedIconAt index: Int) -> UIImage {
-    
+        
         return TabItemsProvider.items[index].highlightedImage
     }
     
     func tabsViewController(_ controller: ColorMatchTabsViewController, tintColorAt index: Int) -> UIColor {
     
+    	print(TabItemsProvider.items[index].title)
+        
         switch index {
         
             case 1:
