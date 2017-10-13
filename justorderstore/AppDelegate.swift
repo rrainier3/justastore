@@ -5,7 +5,7 @@
 //  Created by RayRainier on 4/24/17.
 //  Copyright © 2017 RadiuSense. All rights reserved.
 // 
-//	 Updated 10/14/2017 v1.0
+//	 Updated 10/14/2017 v1.1
 //
 
 import UIKit
