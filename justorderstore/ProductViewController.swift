@@ -179,7 +179,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         
         //button.backgroundColor = refTintColor
         
-        button.setTitle("S A V E", for: .normal)
+        button.setTitle("O R D E R", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         
         button.titleLabel?.font = UIFont(name: "GothamPro", size: 18)
@@ -189,7 +189,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleAddButton), for: .touchUpInside)
         
         return button
     }()

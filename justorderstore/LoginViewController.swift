@@ -122,8 +122,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
             print(user?.providerData as Any)
             print(user?.displayName as Any)
             
+            print(user?.email as Any)
+            print(user?.providerID as Any)
+            
             // forcing user to be Admin!
-            user1 = User(userid: self.emailTextField.text!, sessionid: "sessionID", type: .Admin)
+            //user1 = User(userid: self.emailTextField.text!, sessionid: "sessionID", type: .Admin)
+            
+            // forcing user to be Client!
+            user1 = User(userid: self.emailTextField.text!, sessionid: "sessionID", type: .Client)
 
             // successfully logged in our user! grant access
             verifyLoginAccess = true
