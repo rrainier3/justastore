@@ -235,6 +235,9 @@ class BasketViewController: UITableViewController {
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = product.desc
         cell.detailTextLabel?.text = product.subdesc
+        
+        cell.ProductImageView.loadImageUsingCacheWithUrlString(product.normalImageURL!)
+        
 //        cell.ProductImageView.image = product.normalImage
         
         let price = Money(minorUnits: product.price1!)
