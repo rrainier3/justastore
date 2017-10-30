@@ -25,14 +25,13 @@ struct Service {
     func fetchHomeFeed(completion: @escaping ([Product]?, Error?) -> ()) {
 
             let storeID = "iLCtXp27p4WL5vaVirCIwW8Eprt2"
-            let ref = FIRDatabase.database().reference().child(storeID).child("products")
+            let ref = Database.database().reference().child(storeID).child("products")
             ref.observe(.value, with: { snapshot in
                 var products: [Product] = []
     
                 for item in snapshot.children {
     
-    
-                    if let item = item as? FIRDataSnapshot {
+                    if let item = item as? DataSnapshot {
                         let postDict = Product(data: item.value as! [String : AnyObject])
                         products.append(postDict)
                     }

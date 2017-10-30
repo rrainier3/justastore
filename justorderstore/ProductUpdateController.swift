@@ -370,9 +370,9 @@ class ProductUpdateController: UIViewController, UINavigationControllerDelegate,
     
     func makeNewProductEntry(productL: String, productSubL: String)-> Product {
 
-        let uidStore = FIRAuth.auth()!.currentUser!.uid
+        let uidStore = Auth.auth().currentUser!.uid
 
-        let ref = FIRDatabase.database().reference()
+        let ref = Database.database().reference()
 
         let key = ref.child(uidStore).childByAutoId().key
         

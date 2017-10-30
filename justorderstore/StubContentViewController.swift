@@ -111,13 +111,13 @@ class StubContentViewController: UITableViewController, ChangeViewProtocol {
         cell.delegate = self		// to enable ChangeViewProtocol
 
         // create a firebase storage ref
-        let storageRef = FIRStorage.storage().reference(forURL: grabURL!)
+        let storageRef = Storage.storage().reference(forURL: grabURL!)
         
         let storageFileName = storageRef.name
         
         let storeID = "iLCtXp27p4WL5vaVirCIwW8Eprt2"
         
-        let imageURL = FIRStorage.storage().reference(forURL: "gs://starboard-fbfd1.appspot.com").child(storeID).child(storageFileName)
+        let imageURL = Storage.storage().reference(forURL: "gs://starboard-fbfd1.appspot.com").child(storeID).child(storageFileName)
         
         imageURL.downloadURL(completion: { (url, error) in
             

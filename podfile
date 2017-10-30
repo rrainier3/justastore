@@ -13,8 +13,8 @@ target 'justorderstore' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'  
-
   pod 'PWSwitch'
+  pod 'ValueStepper'
 
   pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
     

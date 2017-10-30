@@ -112,7 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, Jitterable {
 /*
          insert Firebase Authentication here ...
 */
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: {(user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: {(user, error) in
             
             if error != nil {
                 print(error!)

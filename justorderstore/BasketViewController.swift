@@ -5,6 +5,7 @@
 //  Created by RayRainier on 3/8/17.
 //  Copyright © 2017 RadiuSense. All rights reserved.
 //
+//	 Modified: 10/18/17 0639P
 
 import UIKit
 import Money

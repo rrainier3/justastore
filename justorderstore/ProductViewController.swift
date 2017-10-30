@@ -340,11 +340,11 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
     
     func persistProductIntoFirebase(_ product: Product) {
         
-        let uidStore = FIRAuth.auth()!.currentUser!.uid
+        let uidStore = Auth.auth().currentUser!.uid
         
-        let ref = FIRDatabase.database().reference()
+        let ref = Database.database().reference()
         
-        let storage = FIRStorage.storage().reference(forURL: "gs://starboard-fbfd1.appspot.com")
+        let storage = Storage.storage().reference(forURL: "gs://starboard-fbfd1.appspot.com")
         
         //let key = ref.child(uidStore).childByAutoId().key
         
@@ -358,7 +358,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         let data = UIImageJPEGRepresentation(imageView.image!, 0.3)
         
         // Create file metadata including the content type
-        let metadata1 = FIRStorageMetadata()
+        let metadata1 = StorageMetadata()
         metadata1.contentType = "image/jpeg"
 
 		// Setup circularProgressView
@@ -367,7 +367,8 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         progressView?.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(progressView!)
         
-        let uploadTask = imageRef.put(data!, metadata: metadata1) { (metadata, error) in
+        
+        let uploadTask = imageRef.putData(data!, metadata: metadata1) { (metadata, error) in
 
             if error != nil {
                 print(error!.localizedDescription)
