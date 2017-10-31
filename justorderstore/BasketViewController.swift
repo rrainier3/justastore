@@ -21,7 +21,7 @@ class BasketViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let thisTotal:Int = runTotalForBasket(basket)
+        let thisTotal:Int = runTotalForBasket2(basket2)
         total = Money(minorUnits: thisTotal)
         print(total!)
         
@@ -55,7 +55,7 @@ class BasketViewController: UITableViewController {
     
     func setupTotalTableFooterView() {
         
-        let tTotal:Int = runTotalForBasket(basket)
+        let tTotal:Int = runTotalForBasket2(basket2)
         total = Money(minorUnits: tTotal)
         
         totalLabel.text = "\(total!)"
@@ -115,6 +115,16 @@ class BasketViewController: UITableViewController {
         var prices:[Int] = []
         basket.forEach { (b) -> () in
             prices.append(b.price1!)
+        }
+        let total:Int = prices.reduce(0){ $0 + $1 }
+        return total
+    }
+    
+    // run total for basket2
+    func runTotalForBasket2(_ basket: [BasketItem]) -> Int {
+        var prices:[Int] = []
+        basket.forEach { (b) -> () in
+            prices.append(b.extprice)
         }
         let total:Int = prices.reduce(0){ $0 + $1 }
         return total
