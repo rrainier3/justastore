@@ -5,7 +5,7 @@
 //  Created by RayRainier on 3/8/17.
 //  Copyright © 2017 RadiuSense. All rights reserved.
 //
-//	 Modified: 10/18/17 0639P
+//	 Modified: 10/31/17 0931A
 
 import UIKit
 import Money
@@ -144,7 +144,7 @@ class BasketViewController: UITableViewController {
         
         if editingStyle == .delete {
             
-            basket.remove(at: indexPath.row)
+            basket2.remove(at: indexPath.row)
             
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -153,7 +153,7 @@ class BasketViewController: UITableViewController {
             setupTotalTableFooterView()
             
             // basket is now empty go back to previous
-            guard basket.count != 0 else {
+            guard basket2.count != 0 else {
                 dismiss(animated: true, completion: nil)
                 return
             }
@@ -218,12 +218,14 @@ class BasketViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        let numberOfRows: Int = basket.count
+        let numberOfRows: Int = basket2.count
         //var numberOfRows: Int = ProductItemsProvider.items.count
         
         if numberOfRows == 0  { 	// basket is empty!
             
-            basket = [Product]()
+            //basket = [Product]()
+            
+            basket2 = [BasketItem]()
         }
         
         return numberOfRows
@@ -234,7 +236,7 @@ class BasketViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BasketTableViewCell
         
         // Configure the cell...
-        let product = basket[indexPath.row]
+        let product = basket2[indexPath.row]
         //let product = ProductItemsProvider.items[indexPath.row]
         
         // Turn off highlighter
@@ -247,26 +249,12 @@ class BasketViewController: UITableViewController {
         cell.textLabel?.text = product.desc
         cell.detailTextLabel?.text = product.subdesc
         
-        cell.ProductImageView.loadImageUsingCacheWithUrlString(product.normalImageURL!)
+        cell.ProductImageView.loadImageUsingCacheWithUrlString(product.normalImageURL)
         
 		// cell.ProductImageView.image = product.normalImage
-        
-        let priceIndex = product.active
-        var setPrice = product.price1
-        
-        switch priceIndex! {
-        case 1:
-            setPrice = product.price1!
-        case 2:
-        	setPrice = product.price2!
-        case 3:
-        	setPrice = product.price3!
-        default:
-            break
-        }
-        
-        let price = Money(minorUnits: setPrice!)
-        cell.priceLabel.text = "\(price)"
+
+//        let price = Money(minorUnits: product.extprice)
+//        cell.priceLabel.text = "\(price)"
         
         return cell
     }

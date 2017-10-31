@@ -159,12 +159,12 @@ extension ProductViewController {
         
     }
     
-    // #selector handle basketButton action
+    // #selector handle basketButton action for basket2!
     func handleBasketButton() {
         
-        giBadgeView.badgeValue = basket.count
+        giBadgeView.badgeValue = basket2.count
         
-        guard basket.count != 0 else {
+        guard basket2.count != 0 else {
             return
         }
         
@@ -263,7 +263,7 @@ extension ProductViewController {
             rightButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
 
             // setup the badge on the basket with counter!
-            giBadgeView.badgeValue = basket.count
+            giBadgeView.badgeValue = basket2.count
             rightButton.addSubview(giBadgeView)
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)

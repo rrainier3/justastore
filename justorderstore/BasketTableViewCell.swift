@@ -11,18 +11,17 @@ import Money
 
 class BasketTableViewCell: UITableViewCell {
     
-    var product: Product? {
+    var product: BasketItem? {
         didSet {
             
-            //setupProductPriceLabel()
+            setupProductPriceLabel(defaultPrice: (product?.extprice)!)
         }
     }
     
-    private func setupProductPriceLabel() {
+    private func setupProductPriceLabel(defaultPrice: Int) {
 
-//  Implement in BasketViewController --->
-//        let price = Money(minorUnits: (flyingProduct?.price)!)
-//        priceLabel.text = "\(price)"
+        let price = Money(minorUnits: defaultPrice)
+        priceLabel.text = "\(price)"
         
     }
     
