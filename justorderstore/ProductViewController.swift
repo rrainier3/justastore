@@ -29,6 +29,9 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // assume flyingProduct is always available we set default_price
+        self.default_price = flyingProduct.price1
+        
         setupNavigationBar()
         
         setupNavigationButtons()
@@ -47,7 +50,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
     // so we must define a global var to hold the basket's badgeValue + items-added
     override func viewWillAppear(_ animated: Bool) {
     
-        giBadgeView.badgeValue = basket.count			// reEntrant before viewDidLoad
+        giBadgeView.badgeValue = basket2.count			// reEntrant before viewDidLoad
         
     }
     

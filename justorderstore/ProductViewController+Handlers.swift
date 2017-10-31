@@ -126,8 +126,8 @@ extension ProductViewController {
         
         if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
         
-        	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: 2, price: self.default_price!)
-            
+        	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: 1, price: self.default_price!)
+
             basket2.append(basketItem)
         }
         
