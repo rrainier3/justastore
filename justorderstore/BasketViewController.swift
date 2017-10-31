@@ -239,9 +239,23 @@ class BasketViewController: UITableViewController {
         
         cell.ProductImageView.loadImageUsingCacheWithUrlString(product.normalImageURL!)
         
-//        cell.ProductImageView.image = product.normalImage
+		// cell.ProductImageView.image = product.normalImage
         
-        let price = Money(minorUnits: product.price1!)
+        let priceIndex = product.active
+        var setPrice = product.price1
+        
+        switch priceIndex! {
+        case 1:
+            setPrice = product.price1!
+        case 2:
+        	setPrice = product.price2!
+        case 3:
+        	setPrice = product.price3!
+        default:
+            break
+        }
+        
+        let price = Money(minorUnits: setPrice!)
         cell.priceLabel.text = "\(price)"
         
         return cell

@@ -13,29 +13,31 @@ import Money
 extension ProductViewController {
     
     
-    func changePriceLabel(_ selectedIndex: Int) {
+    func changePriceLabel(_ selectedIndex: Int) -> Int {
+        
+        var defaultPrice: Int
         
         // we can implement this within a dictionary [index, value] returning value
         
         switch selectedIndex {
         case 1:
-            let thisMoney = Money(minorUnits: flyingProduct.price1!)
-            priceLabel.text = "\(thisMoney)"
+        	defaultPrice = flyingProduct.price1!
 
         case 2:
-            let thisMoney = Money(minorUnits: flyingProduct.price2!)
-            priceLabel.text = "\(thisMoney)"
-        
+        	defaultPrice = flyingProduct.price2!
+
         case 3:
-            let thisMoney = Money(minorUnits: flyingProduct.price3!)
-            priceLabel.text = "\(thisMoney)"
-        
+        	defaultPrice = flyingProduct.price3!
+
         default:
-            let thisMoney = Money(minorUnits: flyingProduct.price1!)
-            priceLabel.text = "\(thisMoney)"
+            defaultPrice = flyingProduct.price1!
         
         }
-        return
+        
+        let thisMoney = Money(minorUnits: defaultPrice)
+        priceLabel.text = "\(thisMoney)"
+        
+        return defaultPrice
     }
     
     func setupViews() {
@@ -56,11 +58,12 @@ extension ProductViewController {
         // 722x520/2 pixel size applied to heightConstant
         _ = imageView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 520/2)
 
-        // insert our segmented-control here
+        // insert our segmented-control here note: active field is used to store selected price-index!
         segmentedControl.itemTitles = ["Regular","Large","Tray"]
         segmentedControl.didSelectItemWith = { (index, title) -> () in
             print("Selected item \(index) for \(title)")
-            self.changePriceLabel(index)
+            self.default_price = self.changePriceLabel(index)
+            flyingProduct.active = index
         }
         
         containerView.addSubview(segmentedControl)
@@ -119,10 +122,13 @@ extension ProductViewController {
         print(giBadgeView.badgeValue)
         
         
-        // approach #2 check the basket first before appending
+        // approach #2A check the basket2 first before appending
         
-        if !checkIfDuplicate(flyingProduct.desc!, basket: basket) {
-            basket.append(flyingProduct)
+        if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
+        
+        	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: 2, price: self.default_price!)
+            
+            basket2.append(basketItem)
         }
         
         // approach #1 filter the basket after appending
@@ -187,6 +193,19 @@ extension ProductViewController {
             }
         }
         return checkpoint
+    }
+    
+    // check basket2 for duplicates via checkIfDuplicate2
+    func checkIfDuplicate2(_ desc: String, basket: [BasketItem]) -> Bool {
+        
+        var checkpoint: Bool = false
+        basket.forEach { (b) in
+            if desc == b.desc {
+                checkpoint = true
+            }
+        }
+        return checkpoint
+        
     }
     
     func setupNavigationButtons() {

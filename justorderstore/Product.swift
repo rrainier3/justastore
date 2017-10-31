@@ -23,6 +23,12 @@ class Product: NSObject {
     var extendedtext: String?
     var active: Int?
     var storeID: String?
+ 
+    /*
+    	Note: On Selected Price, we will utilize {active} field
+        		to hold values 0 = inactive, 1 <= x => 3 = active [0,1,2,3]
+            Thus, to check if its price3, active == 3 ...
+    */
     
     /*
      Introduce new init() to avoid crashing due to adding props

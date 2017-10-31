@@ -16,6 +16,8 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
     
     var imagePicker: UIImagePickerController?
     
+    var default_price: Int?
+    
     var xproduct: Product? {
         didSet {
             
