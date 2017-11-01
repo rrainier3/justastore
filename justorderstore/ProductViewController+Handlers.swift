@@ -64,6 +64,8 @@ extension ProductViewController {
             print("Selected item \(index) for \(title)")
             self.default_price = self.changePriceLabel(index)
             flyingProduct.active = index
+            
+            self.addButton.isEnabled = true
         }
         
         containerView.addSubview(segmentedControl)
@@ -111,7 +113,11 @@ extension ProductViewController {
         
         containerView.addSubview(addButton)
         
-        _ = addButton.anchor(textView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 20, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+        _ = addButton.anchor(textView.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 8, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+        
+        containerView.addSubview(valueStepper)
+        
+        _ = valueStepper.anchor(textView.bottomAnchor, left: containerView.leftAnchor, bottom: addButton.topAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 122, bottomConstant: 20, rightConstant: 122, widthConstant: 10, heightConstant: 30)
     }
     
     // #selector handle addButton action
@@ -124,12 +130,21 @@ extension ProductViewController {
         
         // approach #2A check the basket2 first before appending
         
+        
+        
         if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
         
+            guard let _ = flyingProduct.desc, flyingProduct.desc != "" else {
+                print("Error: flyingProduct.desc is Empty")
+                return
+            }
+            
         	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: 1, price: self.default_price!)
 
             basket2.append(basketItem)
         }
+        
+        self.addButton.isEnabled = false
         
         // approach #1 filter the basket after appending
         //basket.append(flyingProduct)

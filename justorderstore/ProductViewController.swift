@@ -11,6 +11,7 @@ import ColorMatchTabs
 import Firebase
 import MobileCoreServices
 import GradientCircularProgress
+import ValueStepper
 
 class ProductViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -31,6 +32,8 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         
         // assume flyingProduct is always available we set default_price
         self.default_price = flyingProduct.price1
+        
+        self.addButton.isEnabled = true
         
         setupNavigationBar()
         
@@ -204,6 +207,17 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         badge.topOffset = 6
         badge.rightOffset = 24
         return badge
+    }()
+    
+    let valueStepper: ValueStepper = {
+        let stepper = ValueStepper()
+        stepper.tintColor = .lightGray
+        stepper.backgroundColor = UIColor.clear
+        stepper.minimumValue = 1
+        stepper.maximumValue = 12
+        stepper.stepValue = 1
+        stepper.autorepeat = false
+        return stepper
     }()
     
     override func didReceiveMemoryWarning() {
