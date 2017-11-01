@@ -33,6 +33,8 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         // assume flyingProduct is always available we set default_price
         self.default_price = flyingProduct.price1
         
+        self.valueStepper.value = 1
+        
         self.addButton.isEnabled = true
         
         setupNavigationBar()

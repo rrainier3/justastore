@@ -131,7 +131,6 @@ extension ProductViewController {
         // approach #2A check the basket2 first before appending
         
         
-        
         if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
         
             guard let _ = flyingProduct.desc, flyingProduct.desc != "" else {
