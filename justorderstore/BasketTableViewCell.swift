@@ -11,17 +11,24 @@ import Money
 
 class BasketTableViewCell: UITableViewCell {
     
-    var product: BasketItem? {
+    var basket: BasketItem? {
         didSet {
+        
+        	setupProductLabels(basket: basket!)
             
-            setupProductPriceLabel(defaultPrice: (product?.extprice)!)
         }
     }
     
-    private func setupProductPriceLabel(defaultPrice: Int) {
+    private func setupProductLabels(basket: BasketItem) {
+    
+        let qty = basket.qty
+        qtyLabel.text = "Qty:\(qty)"
 
-        let price = Money(minorUnits: defaultPrice)
-        priceLabel.text = "\(price)"
+        let price = Money(minorUnits: basket.price)
+        priceLabel.text = "@\(price)"
+
+        let extprice = Money(minorUnits: basket.extprice)
+        extpriceLabel.text = "\(extprice)"
         
     }
     
@@ -40,6 +47,7 @@ class BasketTableViewCell: UITableViewCell {
         textLabel?.frame = CGRect(x: 120, y: ((textLabel?.frame.origin.y)! - 12), width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
         
         detailTextLabel?.frame = CGRect(x: 120, y: ((detailTextLabel?.frame.origin.y)! - 10), width: (detailTextLabel?.frame.width)!, height: (detailTextLabel?.frame.height)!)
+        
     }
     
     let containerView: UIView = {
@@ -59,7 +67,23 @@ class BasketTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    let qtyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "GothamPro", size: 16)
+        label.textColor = refTintColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "GothamPro", size: 16)
+        label.textColor = refTintColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let extpriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "GothamPro", size: 18)
         label.textColor = refTintColor
@@ -80,8 +104,10 @@ class BasketTableViewCell: UITableViewCell {
         sendSubview(toBack: containerView)
 
         addSubview(ProductImageView)
-
+        
+		addSubview(qtyLabel)
         addSubview(priceLabel)
+        addSubview(extpriceLabel)
         
         // x,y,width,height constraints
         ProductImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
@@ -89,7 +115,11 @@ class BasketTableViewCell: UITableViewCell {
         ProductImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         ProductImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -8).isActive = true
         
-        _ = priceLabel.anchor(self.bottomAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: -30, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 18)
+        _ = qtyLabel.anchor(self.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: -30, leftConstant: 120, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 16)
+ 
+        _ = priceLabel.anchor(self.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: -30, leftConstant: 180, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 16)
+        
+        _ = extpriceLabel.anchor(self.bottomAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: -30, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 18)
         
     }
     

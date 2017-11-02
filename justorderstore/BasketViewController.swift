@@ -243,7 +243,7 @@ class BasketViewController: UITableViewController {
         cell.selectionStyle = .none
         
         // Set product to trigger didSet() in BasketTableViewCell instance
-        cell.product = product
+        cell.basket = product
         
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = product.desc

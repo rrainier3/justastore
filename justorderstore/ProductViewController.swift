@@ -73,21 +73,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         segmentedControlX.allowChangeThumbWidth = false
         segmentedControlX.frame = CGRect(x: 50, y: 200, width: 100, height: 60)
         
-        /*
-        // segmentedControl 3 type
-        segmentedControlX.allowChangeThumbWidth = false
-        segmentedControlX.selectedTextFont = UIFont.systemFont(ofSize: 16, weight: 0.3)
-        segmentedControlX.defaultTextFont = UIFont.systemFont(ofSize: 16, weight: 0.01)
-        segmentedControlX.useGradient = true
-        segmentedControlX.useShadow = true
-        segmentedControlX.thumbShadowColor = TTSegmentedControl.UIColorFromRGB(0x22C6E7)
-        //segmentedControl.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x25D0EC), TTSegmentedControl.UIColorFromRGB(0x1EA3D8)]
-        segmentedControlX.thumbGradientColors = [refTintColor, refTintColor]
-        
-        */
-        
-        
-        segmentedControlX.itemTitles = ["gas","diesel","electric"]
+        segmentedControlX.itemTitles = ["Regular","Large","Family"]
         //segmentedControlX.allowChangeThumbWidth = false
         segmentedControlX.selectedTextFont = UIFont.systemFont(ofSize: 16, weight: 0.3)
         segmentedControlX.defaultTextFont = UIFont.systemFont(ofSize: 16, weight: 0.01)
@@ -95,7 +81,6 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         segmentedControlX.useShadow = false
         segmentedControlX.useGradient = true
         segmentedControlX.thumbGradientColors = [ TTSegmentedControl.UIColorFromRGB(0x819753), TTSegmentedControl.UIColorFromRGB(0xA5BD73)]
-        
         
         segmentedControlX.translatesAutoresizingMaskIntoConstraints = false
         
@@ -129,7 +114,6 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         iv.clipsToBounds = true
         return iv
     }()
-    
     
     let productLabel: UILabel = {
         let label = UILabel()
@@ -166,6 +150,7 @@ class ProductViewController: UIViewController, UINavigationControllerDelegate, U
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.isHidden = false
+        
         // Let us style the linespacing CGFloat in this paragraph
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10
