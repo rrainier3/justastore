@@ -138,7 +138,13 @@ extension ProductViewController {
                 return
             }
             
-        	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: 1, price: self.default_price!)
+            let qtyInStepper: Int = Int(self.valueStepper.value)
+            
+            guard qtyInStepper != 0 else {
+                return
+            }
+            
+        	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: qtyInStepper, price: self.default_price!)
 
             basket2.append(basketItem)
         }
