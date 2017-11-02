@@ -13,10 +13,14 @@ var basket: Array = [Product]()
 var basket2: Array = [BasketItem]()
 
 struct BasketItem {
+	let basketID: String
     let key, sku, desc, subdesc, normalImageURL, storeID: String
     let qty, price, extprice: Int
     
     init(key: String, sku: String, desc: String, subdesc: String, normalImageURL: String, storeID: String, qty: Int, price: Int) {
+
+		self.basketID = desc + "\(price)"
+        
         self.key = key
         self.sku = sku
         self.desc = desc

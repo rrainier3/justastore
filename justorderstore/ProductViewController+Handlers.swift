@@ -61,9 +61,14 @@ extension ProductViewController {
         // insert our segmented-control here note: active field is used to store selected price-index!
         segmentedControl.itemTitles = ["Regular","Large","Tray"]
         segmentedControl.didSelectItemWith = { (index, title) -> () in
+            
             print("Selected item \(index) for \(title)")
+            
             self.default_price = self.changePriceLabel(index)
+            
             flyingProduct.active = index
+            
+    		self.valueStepper.value = 1		// set qty=1 when segmentedControl changes!
             
             self.addButton.isEnabled = true
         }
@@ -130,8 +135,11 @@ extension ProductViewController {
         
         // approach #2A check the basket2 first before appending
         
+        //if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
         
-        if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
+        let basketID = flyingProduct.desc! + "\(self.default_price)"
+        
+        if !checkIfDuplicateWithPrice(basketID, basket: basket2) {
         
             guard let _ = flyingProduct.desc, flyingProduct.desc != "" else {
                 print("Error: flyingProduct.desc is Empty")
@@ -226,6 +234,22 @@ extension ProductViewController {
         }
         return checkpoint
         
+    }
+    
+    // check basket2 for duplicates via checkIfDuplicateWithPrice
+    func checkIfDuplicateWithPrice(_ desc_price: String, basket: [BasketItem]) -> Bool {
+        
+        var checkpoint: Bool = false
+        
+        basket.forEach { (b) in
+            
+            if desc_price == b.basketID {
+                
+                checkpoint = true
+                
+            }
+        }
+        return checkpoint
     }
     
     func setupNavigationButtons() {
