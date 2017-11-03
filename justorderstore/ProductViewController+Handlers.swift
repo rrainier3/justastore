@@ -135,11 +135,7 @@ extension ProductViewController {
         
         // approach #2A check the basket2 first before appending
         
-        //if !checkIfDuplicate2(flyingProduct.desc!, basket: basket2) {
-        
-        let basketID = flyingProduct.desc! + "\(self.default_price)"
-        
-        if !checkIfDuplicateWithPrice(basketID, basket: basket2) {
+        if !checkIfDuplicate2(flyingProduct.desc!, price: self.default_price!, basket: basket2) {
         
             guard let _ = flyingProduct.desc, flyingProduct.desc != "" else {
                 print("Error: flyingProduct.desc is Empty")
@@ -155,6 +151,7 @@ extension ProductViewController {
         	let basketItem = BasketItem(key: flyingProduct.key!, sku: flyingProduct.sku!, desc: flyingProduct.desc!, subdesc: flyingProduct.subdesc!, normalImageURL: flyingProduct.normalImageURL!, storeID: flyingProduct.storeID!, qty: qtyInStepper, price: self.default_price!)
 
             basket2.append(basketItem)
+            
         }
         
         self.addButton.isEnabled = false
@@ -224,32 +221,16 @@ extension ProductViewController {
     }
     
     // check basket2 for duplicates via checkIfDuplicate2
-    func checkIfDuplicate2(_ desc: String, basket: [BasketItem]) -> Bool {
+    func checkIfDuplicate2(_ desc: String, price: Int, basket: [BasketItem]) -> Bool {
         
         var checkpoint: Bool = false
         basket.forEach { (b) in
-            if desc == b.desc {
+            if desc == b.desc && price == b.price {
                 checkpoint = true
             }
         }
         return checkpoint
         
-    }
-    
-    // check basket2 for duplicates via checkIfDuplicateWithPrice
-    func checkIfDuplicateWithPrice(_ desc_price: String, basket: [BasketItem]) -> Bool {
-        
-        var checkpoint: Bool = false
-        
-        basket.forEach { (b) in
-            
-            if desc_price == b.basketID {
-                
-                checkpoint = true
-                
-            }
-        }
-        return checkpoint
     }
     
     func setupNavigationButtons() {
