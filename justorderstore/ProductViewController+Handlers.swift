@@ -193,7 +193,10 @@ extension ProductViewController {
             return
         }
         
-        let presentingVC = UINavigationController(rootViewController: BasketViewController())
+        let presentingVC = UINavigationController(rootViewController: NewBasketViewController())
+
+
+        //let presentingVC = UINavigationController(rootViewController: BasketViewController())
         self.navigationController?.present(presentingVC, animated: true, completion: nil)
     }
     // check basket for duplicates via checkBasketForDuplicates

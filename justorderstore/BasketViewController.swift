@@ -51,6 +51,7 @@ class BasketViewController: UITableViewController {
         
         // Reload
         self.attemptReloadOfTable()
+        
     }
     
     func setupTotalTableFooterView() {
@@ -61,7 +62,7 @@ class BasketViewController: UITableViewController {
         totalLabel.text = "\(total!)"
         
         let height = 100 - 8
-        let width = 327
+        let width: Int = Int(self.view.bounds.width) - 48
         
         let customView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         customView.backgroundColor = UIColor.clear
