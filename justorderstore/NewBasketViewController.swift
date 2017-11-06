@@ -13,14 +13,38 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
 
 	let cellId = "cellId"
     
+    var blankViewController = ProductViewController()
+    
+    var total: Money?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let thisTotal:Int = runTotalForBasket2(basket2)
+        total = Money(minorUnits: thisTotal)
+        print(total!)
+        
+    }
+
+    // run total for basket2
+    func runTotalForBasket2(_ basket: [BasketItem]) -> Int {
+        var prices:[Int] = []
+        basket.forEach { (b) -> () in
+            prices.append(b.extprice)
+        }
+        let total:Int = prices.reduce(0){ $0 + $1 }
+        return total
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
         setupBasketNavigation()
         
-        let tableViewController = BasketViewController()
-        
-		let tableView: UITableView = tableViewController.tableView
+//        let tableViewController = BasketViewController()
+//        
+//		let tableView: UITableView = tableViewController.tableView
+
+		let tableView = UITableView()
 
         // Register [UITableViewCell]'s here
         tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellId)
@@ -29,16 +53,32 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // or Remove separator line on all cells
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        // prepare for swipe step-1
+        tableView.allowsMultipleSelectionDuringEditing = true
 
+		setupSubViews(tableView)
+
+        // Remove separator for empty cells
+        //self.tableView.tableFooterView = UIView(frame: .zero)
+        
+        setupTotalTableFooterView(tableView)
+        
         // Reload
         self.attemptReloadOfTable(tableView)
         
+    }
+    
+    func setupSubViews(_ tableView: UITableView) {
+    
         let newHeight = self.view.bounds.height - 100
-        
         
         self.view.addSubview(tableView)
         
-		_ = tableView.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: newHeight)
+        _ = tableView.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: newHeight)
         
         let checkoutBox = UIView()
         
@@ -48,15 +88,105 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         
         _ = checkoutBox.anchor(tableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 100)
         
-
-        // Do any additional setup after loading the view.
     }
+    
+    func setupTotalTableFooterView(_ tableView: UITableView) {
+        
+        let tTotal:Int = runTotalForBasket2(basket2)
+        total = Money(minorUnits: tTotal)
+        
+        totalLabel.text = "\(total!)"
+        
+        let height = 100 - 8
+        let width: Int = Int(self.view.bounds.width) - 48
+        
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+        customView.backgroundColor = UIColor.clear
+        
+        let boxer = UIView(frame: CGRect(x: 28, y: 4, width: width, height: height))
+        boxer.backgroundColor = UIColor(r: 250, g: 250, b: 250)
+        
+        customView.addSubview(boxer)
+        customView.addSubview(titleLabel)
+        customView.addSubview(totalLabel)
+        customView.addSubview(separatorLineView)
+        
+        _ = titleLabel.anchor(customView.topAnchor, left: customView.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 120, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
+        
+        _ = totalLabel.anchor(customView.topAnchor, left: nil, bottom: nil, right: customView.rightAnchor, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 20)
+        
+        _ = separatorLineView.anchor(customView.topAnchor, left: customView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 28, bottomConstant: 0, rightConstant: 0, widthConstant: CGFloat(width), heightConstant: 1)
+        
+        tableView.tableFooterView = customView
+        
+    }
+    
+    let totalLabel: UILabel = {
+        let label = UILabel()
+        label.text = "$10.99"
+        label.font = UIFont(name: "GothamPro", size: 22)
+        label.textColor = refTintColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "TOTAL"
+        label.font = UIFont(name: "GothamPro", size: 22)
+        label.textColor = refTintColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let separatorLineView: UIView = {
+        let thinLine = UIView()
+        thinLine.backgroundColor = refTintColor
+        thinLine.translatesAutoresizingMaskIntoConstraints = false
+        thinLine.layer.masksToBounds = true
+        return thinLine
+    }()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // prepare for swipe step-2
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        let canDelete: Bool = true
+        
+        return canDelete
+        
+    }
+    
+    // prepare for swipe delete step-3
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            basket2.remove(at: indexPath.row)
+            
+            // Note that indexPath is wrapped in an array:  [indexPath]
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // Lets run the total again!
+            setupTotalTableFooterView(tableView)
+            
+            // basket is now empty go back to previous
+            guard basket2.count != 0 else {
+                dismiss(animated: true, completion: nil)
+                return
+            }
+            
+            tableView.reloadData()
+            
+            // Attemp to ReEnter basket to clear totalSection
+            self.blankViewController.handleBasketButton()
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -124,7 +254,6 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Configure the cell...
         let product = basket2[indexPath.row]
-        //let product = ProductItemsProvider.items[indexPath.row]
         
         // Turn off highlighter
         cell.selectionStyle = .none
@@ -137,11 +266,6 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.detailTextLabel?.text = product.subdesc
         
         cell.ProductImageView.loadImageUsingCacheWithUrlString(product.normalImageURL)
-        
-        // cell.ProductImageView.image = product.normalImage
-        
-        //        let price = Money(minorUnits: product.extprice)
-        //        cell.priceLabel.text = "\(price)"
         
         return cell
     }
