@@ -39,10 +39,6 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
  
         setupBasketNavigation()
-        
-//        let tableViewController = BasketViewController()
-//        
-//		let tableView: UITableView = tableViewController.tableView
 
 		let tableView = UITableView()
 
@@ -87,7 +83,7 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         self.view.addSubview(checkoutBox)
         
         _ = checkoutBox.anchor(tableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 100)
-        
+ 
     }
     
     func setupTotalTableFooterView(_ tableView: UITableView) {
@@ -147,6 +143,32 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
         return thinLine
     }()
 
+    let checkOutButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.backgroundColor = UIColor.RGBHex(0xA5BD73)
+        
+        //button.backgroundColor = refTintColor
+        
+        button.setTitle("C H E C K O U T", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        
+        button.titleLabel?.font = UIFont(name: "GothamPro", size: 18)
+        //button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addTarget(self, action: #selector(handleCheckOutButton), for: .touchUpInside)
+        
+        return button
+    }()
+
+	func handleCheckOutButton() {
+        print(123)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
