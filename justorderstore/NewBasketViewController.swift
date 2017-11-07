@@ -72,17 +72,23 @@ class NewBasketViewController: UIViewController, UITableViewDelegate, UITableVie
     
         let newHeight = self.view.bounds.height - 100
         
+        let newWidth = self.view.bounds.width - 48
+        
         self.view.addSubview(tableView)
         
         _ = tableView.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: newHeight)
         
         let checkoutBox = UIView()
         
-        checkoutBox.backgroundColor = .red
+        checkoutBox.backgroundColor = .clear
+        
+        checkoutBox.addSubview(checkOutButton)
         
         self.view.addSubview(checkoutBox)
         
-        _ = checkoutBox.anchor(tableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 100)
+        _ = checkoutBox.anchor(tableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 80)
+
+		_ = checkOutButton.anchor(checkoutBox.topAnchor, left: checkoutBox.leftAnchor, bottom: nil, right: checkoutBox.rightAnchor, topConstant: 8, leftConstant: 8, bottomConstant: 8, rightConstant: 8, widthConstant: newWidth, heightConstant: 50)
  
     }
     
